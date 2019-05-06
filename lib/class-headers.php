@@ -1,4 +1,5 @@
 <?php 
+// response headers fetch and analysis
 	class headers {
 
 		var $url; 
@@ -13,22 +14,23 @@
 				
 				$class = ''; 
 				
+				// information
 				if (
 				stripos($row, 'Cache-Control') !== false ||
 				stripos($row, 'X-Rocket') !== false ||
 				stripos($row, 'WP Rocket') !== false ||
 				stripos($row, 'server: apache') !== false) {
-
-						$class = 'text-primary'; 
+					$class = 'text-primary'; 
 				}
 
 
 				
-				
+				// alerts
 				if(	stripos($row, '301 Moved Permanently') !== false  ) {
 						$class = 'text-info'; 
 				}	
 					
+				// warnings					
 				if(	$row == 'Server: cloudflare'   || 
 					$row == 'Via: 1.1 varnish' || 
 					$row == 'X-Cache: MISS' || 

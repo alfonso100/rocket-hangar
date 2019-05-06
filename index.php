@@ -76,9 +76,14 @@ if ($url) :
   $widget_body = $cached->display_headers();
   echo $widget->display_widget('Headers non_cached', $widget_body, 'information ');
 
-  //check files
+  //check files - contributors.txt
   $widget = new widget();
-  echo $widget->display_widget('contributors.txt', 'file', 'files ');
+  $file_exists = new files(); 
+  $file_exists->checkURL($url.'/wp-content/plugins/wp-rocket/contributors.txt');
+  $widget_body = $file_exists->url_exists.'..';
+
+
+  echo $widget->display_widget('contributors.txt', $widget_body, 'files ');
 
  $widget = new widget();
   echo $widget->display_widget('Desktop cached file ', 'file', 'files ');

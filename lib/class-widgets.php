@@ -1,4 +1,6 @@
 <?php 
+// widgets builder
+
 	class widget {
 
 		var $title; 

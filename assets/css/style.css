@@ -15,6 +15,7 @@ body {
 	background: #FFF;
 	margin-top: 1rem;
 	margin-bottom: 1rem;
+	overflow-y: hidden;
 }
 
 .widget .title {
