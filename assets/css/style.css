@@ -1,0 +1,40 @@
+body {
+	background: #eee;
+}
+
+.grid-item { width: 23%; margin-left: 1%; margin-right: 1%;}
+.grid-item--width33 { width: 31%; }
+.grid-item--width50 { width: 48%; }
+.grid-item--width75 { width: 73%; }
+.grid-item--width100 { width: 100%; }
+
+
+.widget {
+	font-size: 0.8rem;
+	border-radius: 0.4rem;
+	background: #FFF;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	overflow-y: hidden;
+}
+
+.widget .title {
+	padding: 0.4rem;
+	background: #666;
+	color: #FFF;
+	border-radius: 0.4rem 0.4rem 0 0;
+}
+
+.widget .title h4 {
+	font-size: 0.8rem;
+	margin: 0;
+}
+
+.widget .body {
+	padding: 0.8rem;
+}
+
+.widget.information .body {
+	font-family: courier, monospace;
+}
+
