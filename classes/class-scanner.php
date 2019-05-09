@@ -6,9 +6,23 @@
 
 		function html_scan($html) { 
 			
-			$results = 'HTML scan results here';
+			include('lib/known_warnings.php');
 
-			return $results;
+			$scan_output = '<table class="table table-striped table-sm">';
+
+			foreach($warnings as $warning) :
+							
+				if(	stripos($html, $warning[0]) !== false  ) { 
+					$scan_output .= '<tr><td><span class="'.$warning[2].'"><a target="_blank" href="'.$warning[3].'">'.$warning[1].'</a></span></td></tr>';
+				}
+
+				
+			endforeach;
+			
+			$scan_output .= '</table>';
+
+
+			return $scan_output;
 
  		}
 
