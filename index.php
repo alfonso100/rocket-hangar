@@ -18,7 +18,7 @@ if($_GET['url']) :
 
 endif;
 
-include('lib/loader.php'); 
+include('classes/loader.php'); 
 
 
 ?>
@@ -59,12 +59,23 @@ if ($url) :
   // GET SITE HTML
   $html = new html(); 
   $site_html = $html->get_html($url);
+
+  // URL PARTS
   $url_parts = explode('://', $url);
 
 
   ///////////////////////
   // WIDGETS SECTION
   ///////////////////////
+
+
+    // wprocket - HTML scanner
+  $widget = new widget();
+  $scanner = new scanner(); 
+  $widget_body = $scanner->html_scan($site_html);
+  echo $widget->display_widget('Potential issues', $widget_body, 'scanner ');
+
+die;
 
   // server information
   $widget = new widget();
@@ -111,8 +122,7 @@ if ($url) :
 
   // tool - visual side by side comparison
   $widget = new widget();
-  $file_exists = new files(); 
-  $widget_body = '<a href="https://alfonsocatron.com/lab/wprocket/sidebyside.php?url='.$url.'">Launch</a>';
+  $widget_body = '<a target="_blank" href="https://alfonsocatron.com/lab/wprocket/sidebyside.php?url='.$url.'">Launch</a>';
   echo $widget->display_widget('Visual side by side ', $widget_body, 'files ');
 
 
@@ -122,11 +132,9 @@ if ($url) :
   $widget_body = $rocket->get_rocket;
   echo $widget->display_widget('WP Rocket settings', $widget_body, 'rocket ');
 
-  // wprocket - HTML scanner
-   $widget = new widget();
-   $scanner = new scanner($html); 
-   $widget_body = $scanner->html_scan;
-   echo $widget->display_widget('Potential issues', $widget_body, 'scanner ');
+
+
+ 
 
 endif; 
 
