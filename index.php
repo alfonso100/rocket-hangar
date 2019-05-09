@@ -35,8 +35,8 @@ include('lib/loader.php');
   </head>
   <body>
     
-  <nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand" href="#">The Hangar</a>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Hangar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -56,9 +56,21 @@ include('lib/loader.php');
 
 if ($url) : 
 
+  // GET SITE HTML
+  $html = new html(); 
+  $site_html = $html->get_html($url);
+  $url_parts = explode('://', $url);
+
+
+  ///////////////////////
   // WIDGETS SECTION
+  ///////////////////////
+
+  // server information
   $widget = new widget();
-  echo $widget->display_widget('Server', 'server', ' ');
+  $hosting = new hosting(); 
+  $widget_body = $hosting->get_hosting($url);
+  echo $widget->display_widget('Server', $widget_body, 'information ');
 
 
   // cached headers
@@ -79,19 +91,42 @@ if ($url) :
   //check files - contributors.txt
   $widget = new widget();
   $file_exists = new files(); 
-  $file_exists->checkURL($url.'/wp-content/plugins/wp-rocket/contributors.txt');
-  $widget_body = $file_exists->url_exists.'..';
-
-
+  $widget_body = $file_exists->checkURL($url.'/wp-content/plugins/wp-rocket/contributors.txt');
   echo $widget->display_widget('contributors.txt', $widget_body, 'files ');
 
- $widget = new widget();
-  echo $widget->display_widget('Desktop cached file ', 'file', 'files ');
 
-$widget = new widget();
-  echo $widget->display_widget('Mobile cached file ', 'file', 'files ');
+  //check files - html desktop index cached page
+  $widget = new widget();
+  $file_exists = new files(); 
+  $widget_body = $file_exists->checkURL($url.'wp-content/cache/wp-rocket/'.$url_parts[1].'index-'.$url_parts[0].'.html');
+  echo $widget->display_widget('Desktop cached file ', $widget_body, 'files ');
 
 
+  //check files - html mobile index cached page
+  $widget = new widget();
+  $file_exists = new files(); 
+  $widget_body = $file_exists->checkURL($url.'wp-content/cache/wp-rocket/'.$url_parts[1].'index-mobile-'.$url_parts[0].'.html');
+  echo $widget->display_widget('Mobile cached file ', $widget_body, 'files ');
+
+
+  // tool - visual side by side comparison
+  $widget = new widget();
+  $file_exists = new files(); 
+  $widget_body = '<a href="https://alfonsocatron.com/lab/wprocket/sidebyside.php?url='.$url.'">Launch</a>';
+  echo $widget->display_widget('Visual side by side ', $widget_body, 'files ');
+
+
+ // wprocket - enabled options
+  $widget = new widget();
+  $rocket = new rocket(); 
+  $widget_body = $rocket->get_rocket;
+  echo $widget->display_widget('WP Rocket settings', $widget_body, 'rocket ');
+
+  // wprocket - HTML scanner
+   $widget = new widget();
+   $scanner = new scanner($html); 
+   $widget_body = $scanner->html_scan;
+   echo $widget->display_widget('Potential issues', $widget_body, 'scanner ');
 
 endif; 
 

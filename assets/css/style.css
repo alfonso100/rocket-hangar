@@ -8,6 +8,9 @@ body {
 .grid-item--width75 { width: 73%; }
 .grid-item--width100 { width: 100%; }
 
+.table-sm td, .table-sm th {
+    padding: .1rem !important;
+}
 
 .widget {
 	font-size: 0.8rem;
@@ -34,7 +37,8 @@ body {
 	padding: 0.8rem;
 }
 
-.widget.information .body {
+.widget.information {
 	font-family: courier, monospace;
+	font-size: 0.7rem;
 }
 
