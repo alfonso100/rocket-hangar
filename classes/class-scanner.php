@@ -9,11 +9,14 @@
 			include('lib/known_warnings.php');
 
 			$scan_output = '<table class="table table-striped table-sm">';
+			$number_of_warnings = 0;
 
 			foreach($warnings as $warning) :
 							
 				if(	stripos($html, $warning[0]) !== false  ) { 
 					$scan_output .= '<tr><td><span class="'.$warning[2].'"><a target="_blank" href="'.$warning[3].'">'.$warning[1].'</a></span></td></tr>';
+
+						$number_of_warnings ++;
 				}
 
 				
@@ -21,8 +24,16 @@
 			
 			$scan_output .= '</table>';
 
+			if($number_of_warnings == 0) {
 
-			return $scan_output;
+				return 'No warnings';
+				
+			} else {
+
+				return $scan_output;
+
+			}
+
 
  		}
 
