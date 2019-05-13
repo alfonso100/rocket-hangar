@@ -134,13 +134,6 @@ if ($url) :
   echo $widget->display_widget('Mobile cached file ', $widget_body, 'files ', 'fa-mobile-alt');
 
 
-  //check files - html mobile index cached page
-  $widget = new widget();
-  $file_exists = new files(); 
-  $widget_body = $file_exists->checkURL($url.'wp-content/cache/wp-rocket/'.$url_parts[1].'index-mobile-'.$url_parts[0].'.html');
-  echo $widget->display_widget('Mobile cached file ', $widget_body, 'files ', 'fa-mobile-alt');
-
-
 
   // tool - Pagespeed
   $widget = new widget();
