@@ -103,7 +103,7 @@ if ($url) :
   // info - Prefetch DNS 
   $widget = new widget();
   $widget_body = 'Prefetch DNS requests URLs';
-  echo $widget->display_widget('Prefetch DNS', $widget_body, 'information files', 'fa-file');
+  echo $widget->display_widget('Prefetch DNS', $widget_body, 'information', 'fa-file');
 
 
   // info - LazyLoaded Images 
