@@ -13,10 +13,9 @@ $(document).ready(function(){
 	});
 
 	// highlight active option
-	$('#filters button').on( 'click', 'button', function() {
-		$('#filters button').removeClass("btn-primary");
-	  	$(this).addClass('btn-primary');
-
+	$('#filters button').on( 'click', function() {
+		$('#filters button').removeClass("btn-primary").addClass('btn-outline-dark');
+	  	$(this).removeClass('btn-outline-dark').addClass('btn-primary');
 
 	});
 
