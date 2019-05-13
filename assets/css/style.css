@@ -33,7 +33,11 @@ nav i {
 	overflow-y: hidden;
 }
 
-
+#filters {
+	border-radius: 4px;
+	text-align: center;
+	height: 2rem;
+}
 
 
 

@@ -26,6 +26,9 @@ include('inc/header.php');
 
 if ($url) : 
 
+  // TOGGLE ELEMENTS
+
+
   // GET SITE HTML
   $html = new html(); 
   $site_html = $html->get_html($url);
@@ -39,13 +42,13 @@ if ($url) :
   ///////////////////////
 
 
-
   // cached headers
   $widget = new widget();
   $cached = new headers(); 
   $cached->build_url_headers($url);
   $widget_body = $cached->display_headers();
   echo $widget->display_widget('Headers Cached', $widget_body, 'information ', 'fa-code');
+
 
 
   // non-cached headers
@@ -55,25 +58,58 @@ if ($url) :
   $widget_body = $cached->display_headers();
   echo $widget->display_widget('Headers non_cached', $widget_body, 'information ', 'fa-code');
 
-    // server information
+
+  
+  // server information
   $widget = new widget();
   $hosting = new hosting(); 
   $widget_body = $hosting->get_hosting($url);
   echo $widget->display_widget('Hosting', $widget_body, 'information ', 'fa-server');
 
 
-   // wprocket - enabled options
+
+  // wprocket - enabled options
   $widget = new widget();
   $rocket = new rocket(); 
   $widget_body = $rocket->get_rocket($url);
   echo $widget->display_widget('WP Rocket settings', $widget_body, 'rocket ', 'fa-rocket');
 
-    // wprocket - HTML scanner
+
+
+  // wprocket - HTML scanner
   $widget = new widget();
   $scanner = new scanner(); 
   $widget_body = $scanner->html_scan($site_html);
-  echo $widget->display_widget('Potential issues', $widget_body, 'scanner ', 'fa-bug');
+  echo $widget->display_widget('Potential issues', $widget_body, 'rocket scanner ', 'fa-bug');
 
+  // info - CSS files
+  $widget = new widget();
+  $widget_body = 'List of CSS files';
+  echo $widget->display_widget('CSS Files', $widget_body, 'information css', 'fa-file');
+
+
+  // info - JS files
+  $widget = new widget();
+  $widget_body = 'List of JS files';
+  echo $widget->display_widget('JS Files', $widget_body, 'information js', 'fa-file');
+
+
+  // info - Inline Javascript 
+  $widget = new widget();
+  $widget_body = 'Inline JS';
+  echo $widget->display_widget('Inline JS', $widget_body, 'information js', 'fa-file');
+
+
+  // info - Prefetch DNS 
+  $widget = new widget();
+  $widget_body = 'Prefetch DNS requests URLs';
+  echo $widget->display_widget('Prefetch DNS', $widget_body, 'information files', 'fa-file');
+
+
+  // info - LazyLoaded Images 
+  $widget = new widget();
+  $widget_body = 'This will help troubleshooting features such as lazy load by providing info about how many images are lazy loaded and possible explanation for those that aren’t, e.g. background images in CSS.';
+  echo $widget->display_widget('LazyLoaded Images', $widget_body, 'information files', 'fa-image');
 
 
   //check files - contributors.txt
@@ -90,6 +126,7 @@ if ($url) :
   echo $widget->display_widget('Desktop cached file ', $widget_body, 'files ', 'fa-desktop');
 
 
+
   //check files - html mobile index cached page
   $widget = new widget();
   $file_exists = new files(); 
@@ -97,26 +134,29 @@ if ($url) :
   echo $widget->display_widget('Mobile cached file ', $widget_body, 'files ', 'fa-mobile-alt');
 
 
-  // tool - visual side by side comparison
+  //check files - html mobile index cached page
   $widget = new widget();
-  $widget_body = '<a class="btn btn-sm btn-outline-light btn-block" target="_blank" href="side-by-side.php?url='.$url.'">Launch <i class="fas fa-external-link-alt"></i></a>';
-  echo $widget->display_widget('Side by Side ', $widget_body, 'tools ', 'fa-columns');
+  $file_exists = new files(); 
+  $widget_body = $file_exists->checkURL($url.'wp-content/cache/wp-rocket/'.$url_parts[1].'index-mobile-'.$url_parts[0].'.html');
+  echo $widget->display_widget('Mobile cached file ', $widget_body, 'files ', 'fa-mobile-alt');
+
+
 
   // tool - Pagespeed
   $widget = new widget();
   $widget_body = '<a class="btn btn-sm btn-outline-light btn-block" target="_blank" href="https://developers.google.com/speed/pagespeed/insights/?url='.$url.'">Run report <i class="fas fa-external-link-alt"></i></a>';
-  echo $widget->display_widget('Google Pagespeed ', $widget_body, 'tools ', 'fa-tachometer-alt');
+  echo $widget->display_widget('Google Pagespeed ', $widget_body, 'tools performance', 'fa-tachometer-alt');
 
     // tool - Pingdom
   $widget = new widget();
   $widget_body = '<a class="btn btn-sm btn-outline-light btn-block" target="_blank" href="pingdom.php?url='.$url.'">Launch <i class="fas fa-external-link-alt"></i></a>';
-  echo $widget->display_widget('Pingdom', $widget_body, 'tools ', 'fa-tachometer-alt');
+  echo $widget->display_widget('Pingdom', $widget_body, 'tools performance', 'fa-tachometer-alt');
 
 
    // tool - GT Metrix
   $widget = new widget();
   $widget_body = '<a class="btn btn-sm btn-outline-light" target="_blank" href="https://gtmetrix.com?url='.$url.'">Launch <i class="fas fa-external-link-alt"></i></a> <a class="btn btn-sm btn-outline-light" target="_blank" href="https://gtmetrix.com?url='.$url.'?nocache">Launch no-cache <i class="fas fa-external-link-alt"></i></a>';
-  echo $widget->display_widget('GT Metrix', $widget_body, 'tools ', 'fa-tachometer-alt');
+  echo $widget->display_widget('GT Metrix', $widget_body, 'tools performance', 'fa-tachometer-alt');
 
 
 

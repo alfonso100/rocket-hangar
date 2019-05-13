@@ -27,5 +27,17 @@
     </div>
   </nav>
 
+<?php if ($url) : ?>
+  <div id="filters" class="filter-button-group">
+    <button type="button" class="btn btn-dark btn-sm" data-filter="*">All</button>
+    <button type="button" class="btn btn-outline-dark btn-sm" data-filter=".rocket">WP Rocket</button>
+    <button type="button" class="btn btn-outline-dark btn-sm" data-filter=".information">Info</button>
+    <button type="button" class="btn btn-outline-dark btn-sm" data-filter=".js">JS</button>
+    <button type="button" class="btn btn-outline-dark btn-sm" data-filter=".css">CSS</button>
+    <button type="button" class="btn btn-outline-dark btn-sm" data-filter=".files">Files</button>
+    <button type="button" class="btn btn-outline-dark btn-sm" data-filter=".performance">Performance</button>
+  </div>
+<?php endif; ?>
+
   <div class="container-fluid">
     <div class="grid">
