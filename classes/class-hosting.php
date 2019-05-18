@@ -15,8 +15,8 @@
 
 			$results = $hosting_html->find('div[id=ip_info_inside-dbip]', 0);
 
-			$results = ereg_replace('/images', 'images', $results);
-			$results = ereg_replace('class="hostinfo result', 'class="table table-striped table-sm', $results);
+			$results = preg_replace('#\/images#i', 'images', $results);
+			$results = preg_replace('#class="hostinfo resultg#i', 'class="table table-striped table-sm', $results);
 
 			return $results;
 
