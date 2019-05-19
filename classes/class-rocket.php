@@ -284,7 +284,7 @@ class Rocket{
 			
 		}
 		
-		return $true;
+		return $matches;
 	}
 	
 	/**
@@ -430,7 +430,7 @@ class Rocket{
 	}
 
 	/********************************************
-	 *				HELPER FUNCTIONS			*
+	 *		HELPER FUNCTIONS	    *
 	 ********************************************/
 	
 	
