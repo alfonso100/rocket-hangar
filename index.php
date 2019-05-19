@@ -68,11 +68,20 @@ if ($url) :
 
 
 
-  // wprocket - enabled options
-  $widget = new widget();
-  $rocket = new rocket(); 
-  $widget_body = $rocket->get_rocket($url);
-  echo $widget->display_widget('WP Rocket settings', $widget_body, 'rocket ', 'fa-rocket');
+   // wprocket - enabled options
+  $widget = new widget;
+  $rocket = new Rocket( $site_html, $url );
+  $widget_body = '';
+  if( $rocket->is_wpr_installed ){
+		$features_enabled = $rocket->enabled_features;
+
+		foreach( $features_enabled as $feature ){
+			$widget_body .= $feature . '<br>';
+		}
+  } else {
+	  $widget_body = 'Oops! WP Rocket is not installed!<br>';
+  }
+  echo $widget->display_widget('WP Rocket Enabled Features', $widget_body, 'rocket ', 'fa-rocket');
 
 
 
@@ -82,16 +91,25 @@ if ($url) :
   $widget_body = $scanner->html_scan($site_html);
   echo $widget->display_widget('Potential issues', $widget_body, 'rocket scanner ', 'fa-bug');
 
-  // info - CSS files
+   // info - CSS files
   $widget = new widget();
-  $widget_body = 'List of CSS files';
+  $css_files = $rocket->css_files;
+  $widget_body = '';
+  foreach( $css_files as $css_file){
+	  $widget_body .= $css_file . '<br>';
+  }
   echo $widget->display_widget('CSS Files', $widget_body, 'information css', 'fa-file');
 
 
-  // info - JS files
+ // info - JS files
   $widget = new widget();
   $widget_body = 'List of JS files';
-  echo $widget->display_widget('JS Files', $widget_body, 'information js', 'fa-file');
+  $javascript_files = $rocket->javascript_files;
+  
+  foreach( $javascript_files as $javascript_file ){
+	  $widget_body_javascript_files .= $javascript_file . '<br>';
+  }
+  echo $widget->display_widget('JavaScript Files', $widget_body_javascript_files, 'information js', 'fa-file');
 
 
   // info - Inline Javascript 
