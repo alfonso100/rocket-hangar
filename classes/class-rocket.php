@@ -193,17 +193,17 @@ class Rocket{
 
 		// If these flags are detected, WP Rocket's respective features are enabled
 		$flags_posistives = array(
-									"Google Tracking add-on"						=> "/cache/busting/google-tracking/",		// Google Tracking add-on
-									"Facebook Pixel add-on"							=> "/cache/busting/facebook-tracking/",		// Facebook Pixel add-on
-									"Remove query strings from static resources"	=> "/cache/busting/",						// Remove query strings from static resources
-									"Optimize CSS delivery"							=> "rocket-critical-css",					// Optimize CSS Delivery
-									"WP Rocket Lazyload"							=> "/wp-rocket/assets/js/lazyload/",		// WP Rocket Lazyload feature
-								);
+					"Google Tracking add-on"			=> "/cache/busting/google-tracking/",	// Google Tracking add-on
+					"Facebook Pixel add-on"				=> "/cache/busting/facebook-tracking/",	// Facebook Pixel add-on
+					"Remove query strings from static resources"	=> "/cache/busting/",			// Remove query strings from static resources
+					"Optimize CSS delivery"				=> "rocket-critical-css",		// Optimize CSS Delivery
+					"WP Rocket Lazyload"				=> "/wp-rocket/assets/js/lazyload/",	// WP Rocket Lazyload feature
+					);
 		
 		// If these flags are detected, the respective WP Rocket features are disabled
 		$flags_negatives = array(
-								"Disable WordPress embeds"	=> "/wp-includes/js/wp-embed.min.js",				// Disable WordPress embeds
-								"Disable WordPress emojis"	=> "/wp-includes/js/wp-emoji-release.min.js",		// Disable WordPress emojis
+					"Disable WordPress embeds"	=> "/wp-includes/js/wp-embed.min.js",		// Disable WordPress embeds
+					"Disable WordPress emojis"	=> "/wp-includes/js/wp-emoji-release.min.js",	// Disable WordPress emojis
 								);
 		
 		// Add features to the respective enabled or disabled array	
@@ -240,7 +240,6 @@ class Rocket{
 		return array_merge( $wp_rocket_enabled_features, $css_js_minification_combination);
 
 	}
-
 
 	/**
 	* Check if CSS/JavaScript combination/minification features are enabled.
@@ -296,10 +295,10 @@ class Rocket{
 	* @param string	$html	The source code of the page.
 	* @param string	$filetype	The file that we are looking for.
 	*	It can take the following values:
-	*	* js for JavaScript files
-	*	* css for CSS files
-	*	* image for images
-	*	* inlineJS for inline JavaScript
+	*	* js: JavaScript files
+	*	* css: CSS files
+	*	* image: images
+	*	* inlineJS: inline JavaScript
 	*/
 	function wp_rocket_find_files ( $html, $filetype )
 	{
@@ -347,7 +346,10 @@ class Rocket{
 		return $results;
 	}
 
-
+	/********************************************
+	 *		HELPER FUNCTIONS 	    *
+	 ********************************************/
+	
 	/**
 	  * Prints the items of a non-associated array as an ordered list. 
 	  *	If code is set, the results will be enclosed in <code></code>.
@@ -385,11 +387,6 @@ class Rocket{
 		}
 	}
 
-	/********************************************
-	 *		HELPER FUNCTIONS 	    *
-	 ********************************************/
-	
-	
 	/*
 	  * Removes the trailing slash from a URL.
 	  *
