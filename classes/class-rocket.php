@@ -1,5 +1,15 @@
 <?php 
-// Enabled WP Rocket options
+/**
+  * Checks for the following:
+  *	* If WP Rocket is installed.
+  *	* If WP Rocket is activated.
+  *	* Which WP Rocket features are enabled.
+  *
+  * @author  Vasilis Manthos <vmanthos@gmail.com>
+  *
+  * @since 1.0
+  *
+  */
 class Rocket{
 
 	/**
@@ -51,23 +61,31 @@ class Rocket{
 	*/
 	public $inline_javascript;
 	
+	
+	/**
+	* The constructor, obviously :)
+	*
+	* @author  Vasilis Manthos <vmanthos@gmail.com>
+	*
+	* @since 1.0
+	*
+	*/
 	function __construct( $html, $url )
 	{
+		// Check if WP Rocket is installed
+		$this->is_wpr_installed = $this->wp_rocket_is_installed( $url );
+		
 		// Find and store the CSS files of the page
 		$this->css_files = $this->wp_rocket_find_files ( $html, 'css' );
 		
 		// Find and store the JavaScript files of the page
 		$this->javascript_files = $this->wp_rocket_find_files ( $html, 'js' );
 		
-		// Find and store the JavaScript files of the page
+		// Find and store the inline JavaScript of the page
 		$this->inline_javascript= $this->wp_rocket_find_files ( $html, 'inlineJS' );
 		
 		// Check which WP Rocket features are enabled
-		$features = $this->check_wp_rocket_features( $html );
-		$this->features_enabled = $features[0];
-		
-		// Check which WP Rocket features are enabled
-		$this->is_wpr_installed = $this->wp_rocket_is_installed( $url );
+		$this->enabled_features = $this->wp_rocket_is_enabled_features( $html );
 	}
 	
 	/**
@@ -169,10 +187,9 @@ class Rocket{
 	  * @param array	A two-dimensional array, with [0] being the enabled features and [1] being the disabled features.
 	  *					Each array contains the name of the feature.
 	  */
-	function check_wp_rocket_features( $html )
+	function wp_rocket_is_enabled_features( $html )
 	{
-		$wp_rocket_enabled_features 	= array(); // WP Rocket enabled features
-		$wp_rocket_disabled_features 	= array(); // WP Rocket disabled features
+		$wp_rocket_enabled_features	= array(); // WP Rocket enabled features
 
 		// If these flags are detected, WP Rocket's respective features are enabled
 		$flags_posistives = array(
@@ -198,23 +215,11 @@ class Rocket{
 				array_push( $wp_rocket_enabled_features, $feature );
 				
 			}
-			else
-			{
-				
-				array_push( $wp_rocket_disabled_features, $feature );
-				
-			}
 		}
 		
 		foreach( $flags_negatives as $feature => $flag ) // check negative flags
 		{
-			if(stripos( $html, $flag ) )
-			{
-				
-				array_push( $wp_rocket_disabled_features, $feature );
-				
-			}
-			else
+			if( !stripos( $html, $flag ) )
 			{
 				
 				array_push( $wp_rocket_enabled_features, $feature );
@@ -222,47 +227,23 @@ class Rocket{
 			}
 		}
 		
-		// Checks for the combined CSS file. If it's there, both CSS minification/combination are enabled
-		if( $this->wp_rocket_is_combination_active( $html, "css" ) )
-		{
-			
-			array_push( $wp_rocket_enabled_features, 'CSS minification/combination' );
-			
-		} 
-		else
-		{	
-			if( $this->wp_rocket_is_minification_enabled( $this->css_files ) )
-			{
-				
-				array_push( $wp_rocket_enabled_features, 'CSS minification' );
-				
-			}
-		}
-		
-		// Checks for the combined JavaScript file. If it's there, both JavaScript minification/combination are enabled
-		if( $this->wp_rocket_is_combination_active( $html, "js" ) )
-		{
-			
-			array_push( $wp_rocket_enabled_features, 'JavaScript minification/combination' );
-			
-		} 
-		else
-		{	
-			if( $this->wp_rocket_is_minification_enabled( $this->js_files ) )
-			{
-				
-				array_push( $wp_rocket_enabled_features, 'JavaScript minification' );
-				
-			}
-		}
-		
-		
-		return array( $wp_rocket_enabled_features, $wp_rocket_disabled_features );
+		// Check if CSS/JavaScript minification/combination are enabled.
+		$css_js_minification_combination = $this->wp_rocket_is_minication_combination_active( $html );
+		/*
+		echo '<pre>';
+		print_r( $wp_rocket_enabled_features );
+		echo '</pre>';
+		echo '<pre>';
+		print_r( $css_js_minification_combination );
+		echo '</pre>';
+		*/
+		return array_merge( $wp_rocket_enabled_features, $css_js_minification_combination);
+
 	}
 
 
 	/**
-	* Check if CSS/JavaScript combination is enabled.
+	* Check if CSS/JavaScript combination/minification features are enabled.
 	*
 	* @author  Vasilis Manthos <vmanthos@gmail.com>
 	*
@@ -270,66 +251,41 @@ class Rocket{
 	*
 	* @param	string	$html	The source code of the page.
 	* @param	string	$filetype	The filetype, css or js, of the files to check.
-	* @return	bool	True if CSS/JavaScript is combination, false otherwise.
+	* @return	array	The enabled features.
 	*/
-	function wp_rocket_is_combination_active( $html, $filetype )
+	function wp_rocket_is_minication_combination_active( $html )
 	{
-		$pattern = '#\/cache\/min\/\d\/[a-z0-9]{32}\.(?>' . $filetype . ')#i';
-		preg_match_all( $pattern, $html, $matches );
-		
-		if( empty( $matches[0][0] ) )
-		{
-			
-			return false;
-			
-		}
-		
-		return $matches;
-	}
-	
-	/**
-	* Check if CSS/JavaScript minification is enabled.
-	*
-	* @author  Vasilis Manthos <vmanthos@gmail.com>
-	*
-	* @since 1.0
-	*
-	* @param	array	$files	An array of a CSS or JavaScript files of the page.
-	* @return	bool	True if CSS/JavaScript is enabled, false otherwise.
-	*/
-	function wp_rocket_is_minification_enabled( $files )
-	{
+		$enabled_features	= array(); // WP Rocket enabled features
+
 		$minification_folder_path = '/cache/min/';
 		
-		if( $files )
-		{
+		$file_arrays = array( 'js' => $this->javascript_files, 'css' => $this->css_files ); // a 2-dimensional array of the CSS and JavaScript files
+		
+		// Check for every filetype which of the features are enabled
+		foreach( $file_arrays as $filetype => $files )
+			{
 			$files = implode( ' ', $files);
+			$pattern = '#\/cache\/min\/\d\/[a-z0-9]{32}\.(?>' . $filetype . ')#i'; // when CSS/JavaScript combination is enabled, the created file's name is a 32 bytes long string consisted of lower case letters and numbers
+			preg_match_all( $pattern, $files, $matches );
 			
-			if( stripos( $files, $minification_folder_path) )
+			if( ! empty( $matches[0][0] ) )
 			{
 				
-				return true;
+				array_push( $enabled_features, strtoupper( $filetype ) . ' minification/combination' );
 				
-			}
-			
-			return false;
-			
+			} else
+			{
+				if( stripos( $files, $minification_folder_path) )
+				{
+				
+					array_push( $enabled_features, strtoupper( $filetype ) . ' minification' );
+					
+				}
+			}			
 		}
+		return $enabled_features;
 	}
 
-	// Check if Defer JavaScript files is enabled -WIP
-	function wp_rocket_is_defer_javascript_active( $html )
-	{
-		$dom = str_get_html( $html );
-		
-		$results = $dom->find( 'script[defer]' );
-		
-		echo '<pre>';
-		echo 'Deferred JavaScript files: ' . count( $results ) . '<br>';
-		print_r( $results->outertext );
-		echo '</pre>';
-	}
-	
 	/**
 	* Find various assets on the page
 	*
@@ -430,7 +386,7 @@ class Rocket{
 	}
 
 	/********************************************
-	 *		HELPER FUNCTIONS	    *
+	 *		HELPER FUNCTIONS 	    *
 	 ********************************************/
 	
 	
