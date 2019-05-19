@@ -71,11 +71,12 @@ if ($url) :
    // wprocket - enabled options
   $widget = new widget;
   $rocket = new Rocket( $site_html, $url );
-  $features_enabled = $rocket->features_enabled;
   $widget_body = '';
   if( $rocket->is_wpr_installed ){
-	  foreach( $features_enabled as $feature_enabled){
-		  $widget_body .= $feature_enabled . '<br>';
+		$features_enabled = $rocket->enabled_features;
+
+		foreach( $features_enabled as $feature ){
+			$widget_body .= $feature . '<br>';
 		}
   } else {
 	  $widget_body = 'Oops! WP Rocket is not installed!<br>';
