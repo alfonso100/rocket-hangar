@@ -19,6 +19,7 @@
 				stripos($row, 'Cache-Control') !== false ||
 				stripos($row, 'X-Rocket') !== false ||
 				stripos($row, 'WP Rocket') !== false ||
+				stripos($row, 'HTTP/') !== false ||
 				stripos($row, 'server: apache') !== false) {
 					$class = 'text-primary'; 
 				}
@@ -26,7 +27,7 @@
 
 				
 				// alerts
-				if(	stripos($row, '301 Moved Permanently') !== false  ) {
+				if(	stripos($row, 'Server') !== false  ) {
 						$class = 'text-info'; 
 				}	
 					

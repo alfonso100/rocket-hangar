@@ -74,12 +74,15 @@ if ($url) :
   $widget_body = '';
   if( $rocket->is_wpr_installed ){
 		$features_enabled = $rocket->enabled_features;
+      
+      asort($features_enabled);
+      $widget_body = '<h5><span class="badge badge-success">WP Rocket is enabled!</span></h5>';
 
 		foreach( $features_enabled as $feature ){
-			$widget_body .= $feature . '<br>';
+			$widget_body .= '<i class="far fa-check-square"></i> ' . $feature . '<br>';
 		}
   } else {
-	  $widget_body = 'Oops! WP Rocket is not installed!<br>';
+	  $widget_body = '<h5><span class="badge badge-danger">Oops! WP Rocket is not installed!</h5>';
   }
   echo $widget->display_widget('WP Rocket Enabled Features', $widget_body, 'rocket ', 'fa-rocket');
 
@@ -91,6 +94,7 @@ if ($url) :
   $widget_body = $scanner->html_scan($site_html);
   echo $widget->display_widget('Potential issues', $widget_body, 'rocket scanner ', 'fa-bug');
 
+/*
    // info - CSS files
   $widget = new widget();
   $css_files = $rocket->css_files;
@@ -129,6 +133,7 @@ if ($url) :
   $widget_body = 'This will help troubleshooting features such as lazy load by providing info about how many images are lazy loaded and possible explanation for those that aren’t, e.g. background images in CSS.';
   echo $widget->display_widget('LazyLoaded Images', $widget_body, 'information files', 'fa-image');
 
+*/
 
   //check files - contributors.txt
   $widget = new widget();
@@ -160,16 +165,20 @@ if ($url) :
 
     // tool - Pingdom
   $widget = new widget();
-  $widget_body = '<a class="btn btn-sm btn-outline-light btn-block" target="_blank" href="pingdom.php?url='.$url.'">Launch <i class="fas fa-external-link-alt"></i></a>';
+  $widget_body = '<a class="btn btn-sm btn-outline-light btn-block" target="_blank" href="https://tools.pingdom.com/">Launch <i class="fas fa-external-link-alt"></i></a>';
   echo $widget->display_widget('Pingdom', $widget_body, 'tools performance', 'fa-tachometer-alt');
 
 
    // tool - GT Metrix
   $widget = new widget();
-  $widget_body = '<a class="btn btn-sm btn-outline-light" target="_blank" href="https://gtmetrix.com?url='.$url.'">Launch <i class="fas fa-external-link-alt"></i></a> <a class="btn btn-sm btn-outline-light" target="_blank" href="https://gtmetrix.com?url='.$url.'?nocache">Launch no-cache <i class="fas fa-external-link-alt"></i></a>';
+  $widget_body = '<a class="btn btn-sm btn-outline-light w-50" target="_blank" href="https://gtmetrix.com?url='.$url.'">Launch <i class="fas fa-external-link-alt"></i></a><a class="btn btn-sm btn-outline-light w-50" target="_blank" href="https://gtmetrix.com?url='.$url.'?nocache">Launch no-cache <i class="fas fa-external-link-alt"></i></a>';
   echo $widget->display_widget('GT Metrix', $widget_body, 'tools performance', 'fa-tachometer-alt');
 
 
+    // tool - CPCSS Ui
+  $widget = new widget();
+  $widget_body = '<a class="btn btn-sm btn-outline-light btn-block" target="_blank" href="https://cpcss.wp-rocket.me/ui?url='.$url.'">Launch <i class="fas fa-external-link-alt"></i></a>';
+  echo $widget->display_widget('CPCSS UI Test', $widget_body, 'tools performance', 'fa-code');
 
 endif; 
 
