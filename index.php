@@ -10,6 +10,7 @@
                                                              
 */
 
+define('MAX_FILE_SIZE', 2000000); // Simple HTML parser has a low limit of 600000
 
 if($_GET['url']) :
 
