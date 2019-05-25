@@ -7,8 +7,6 @@
 
 		function get_hosting($url) { 
 
-			include('lib/simple_html_dom.php');
-
 			$hosting = file_get_contents( 'https://check-host.net/ip-info?host='.$url );
 
 			$hosting_html = str_get_html($hosting);
