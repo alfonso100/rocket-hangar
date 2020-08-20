@@ -84,7 +84,7 @@ if ($url) :
 		}
 
 		// FILE DETECTIONS
-		$widget_body .= '<br><h5><span class="badge badge-warning">FILES</h5>';
+		$widget_body .= '<br><h5><span class="badge badge-primary">FILES</h5>';
 		
 		$file_exists = new files(); 
 		$widget_body .= '<table class="table table-striped table-sm">';
