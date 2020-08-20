@@ -82,9 +82,36 @@ if ($url) :
 		foreach( $features_enabled as $feature ){
 			$widget_body .= '<i class="far fa-check-square"></i> ' . $feature . '<br>';
 		}
+
+		// FILE DETECTIONS
+		$widget_body .= '<br><h5><span class="badge badge-warning">FILES</h5>';
+		
+		$file_exists = new files(); 
+		$widget_body .= '<table class="table table-striped table-sm">';
+		
+		// contributors file
+		$widget_body .= '<tr><td><trong>Contributors.txt</strong></td><td>'. $file_exists->checkURL($url.'/wp-content/plugins/wp-rocket/contributors.txt') .'</td></tr>';
+		
+		//desktop cache
+		$widget_body .= '<tr><td><trong>Desktop HTML Cache</strong></td><td>'. $file_exists->checkURL($url.'wp-content/cache/wp-rocket/'.$url_parts[1].'index-'.$url_parts[0].'.html') .'</td></tr>';
+
+		// mobile cache
+		$widget_body .= '<tr><td><trong>Mobile HTML cache</strong></td><td>'. $file_exists->checkURL($url.'wp-content/cache/wp-rocket/'.$url_parts[1].'index-mobile-'.$url_parts[0].'.html') .'</td></tr>';	
+
+		// webp cache
+		$widget_body .= '<tr><td><trong>Mobile HTML cache</strong></td><td>'. $file_exists->checkURL($url.'wp-content/cache/wp-rocket/'.$url_parts[1].'index-'.$url_parts[0].'-webp.html') .'</td></tr>';	
+		
+		
+					
+		$widget_body .= '</table>';
+		
+
+
   } else {
 	  $widget_body = '<h5><span class="badge badge-danger">Oops! WP Rocket is not installed!</h5>';
   }
+  
+    
   echo $widget->display_widget('WP Rocket Enabled Features', $widget_body, 'rocket ', 'fa-rocket');
 
 
@@ -136,50 +163,12 @@ if ($url) :
 
 */
 
-  //check files - contributors.txt
-  $widget = new widget();
-  $file_exists = new files(); 
-  $widget_body = $file_exists->checkURL($url.'/wp-content/plugins/wp-rocket/contributors.txt');
-  echo $widget->display_widget('contributors.txt', $widget_body, 'files ', 'fa-file');
-
-
-  //check files - html desktop index cached page
-  $widget = new widget();
-  $file_exists = new files(); 
-  $widget_body = $file_exists->checkURL($url.'wp-content/cache/wp-rocket/'.$url_parts[1].'index-'.$url_parts[0].'.html');
-  echo $widget->display_widget('Desktop cached file ', $widget_body, 'files ', 'fa-desktop');
 
 
 
-  //check files - html mobile index cached page
-  $widget = new widget();
-  $file_exists = new files(); 
-  $widget_body = $file_exists->checkURL($url.'wp-content/cache/wp-rocket/'.$url_parts[1].'index-mobile-'.$url_parts[0].'.html');
-  echo $widget->display_widget('Mobile cached file ', $widget_body, 'files ', 'fa-mobile-alt');
 
 
 
-  // tool - Pagespeed
-  $widget = new widget();
-  $widget_body = '<a class="btn btn-sm btn-outline-light btn-block" target="_blank" href="https://developers.google.com/speed/pagespeed/insights/?url='.$url.'">Run report <i class="fas fa-external-link-alt"></i></a>';
-  echo $widget->display_widget('Google Pagespeed ', $widget_body, 'tools performance', 'fa-tachometer-alt');
-
-    // tool - Pingdom
-  $widget = new widget();
-  $widget_body = '<a class="btn btn-sm btn-outline-light btn-block" target="_blank" href="https://tools.pingdom.com/">Launch <i class="fas fa-external-link-alt"></i></a>';
-  echo $widget->display_widget('Pingdom', $widget_body, 'tools performance', 'fa-tachometer-alt');
-
-
-   // tool - GT Metrix
-  $widget = new widget();
-  $widget_body = '<a class="btn btn-sm btn-outline-light w-50" target="_blank" href="https://gtmetrix.com?url='.$url.'">Launch <i class="fas fa-external-link-alt"></i></a><a class="btn btn-sm btn-outline-light w-50" target="_blank" href="https://gtmetrix.com?url='.$url.'?nocache">Launch no-cache <i class="fas fa-external-link-alt"></i></a>';
-  echo $widget->display_widget('GT Metrix', $widget_body, 'tools performance', 'fa-tachometer-alt');
-
-
-    // tool - CPCSS Ui
-  $widget = new widget();
-  $widget_body = '<a class="btn btn-sm btn-outline-light btn-block" target="_blank" href="https://cpcss.wp-rocket.me/ui?url='.$url.'">Launch <i class="fas fa-external-link-alt"></i></a>';
-  echo $widget->display_widget('CPCSS UI Test', $widget_body, 'tools performance', 'fa-code');
 
 endif; 
 

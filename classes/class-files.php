@@ -92,10 +92,9 @@
 		    curl_close($ch);
 
 		    if (array_key_exists($returnedStatusCode, $httpStatusCodes)) {
-			    $link = '<a href="'.$url.'" class="btn btn-sm btn-light float-right" target="_blank">View</a><div class="clearfix"></div>';		    
-		        $file = "<strong>{$returnedStatusCode}</strong> - {$httpStatusCodes[$returnedStatusCode]} {$link}";
+		        $file = "<a target='_blank' href='{$url}'><strong>{$returnedStatusCode}</strong> - {$httpStatusCodes[$returnedStatusCode]}</a> <i class='fas fa-external-link-alt'></i>";
 		    } else {
-		        $file = "'{$url}' does not exist - {$link}";
+		        $file = "does not exist - <a href='{$url}'>check it!</a>";
 		    }
 
 		    return $file;

@@ -28,18 +28,27 @@
     </div>
   </nav>
 
+
 <?php if ($url) : ?>
 
   <div id="filters" class="filter-button-group">
-    <button type="button" class="btn btn-primary btn-sm" data-filter="*">All</button>
-    <button type="button" class="btn btn-outline-dark btn-sm" data-filter=".rocket">WP Rocket</button>
-    <button type="button" class="btn btn-outline-dark btn-sm" data-filter=".information">Info</button>
-    <button type="button" class="btn btn-outline-dark btn-sm" data-filter=".js">JS</button>
-    <button type="button" class="btn btn-outline-dark btn-sm" data-filter=".css">CSS</button>
-    <button type="button" class="btn btn-outline-dark btn-sm" data-filter=".files">Files</button>
-    <button type="button" class="btn btn-outline-dark btn-sm" data-filter=".performance">Performance</button>
+	<a class="btn btn-secondary btn-sm" target="_blank" href="https://developers.google.com/speed/pagespeed/insights/?url=<?php echo $url ?>"> <i class="fas fa-tachometer-alt"></i> Pagespeed</a>
+	
+	<a class="btn btn-secondary btn-sm" target="_blank" href="https://tools.pingdom.com/"> <i class="fas fa-tachometer-alt"></i> Pingdom</a>	
+	
+	<a class="btn btn-secondary btn-sm" target="_blank" href="https://gtmetrix.com?url=<?php echo $url ?>"> <i class="fas fa-tachometer-alt"></i> GT Metrix</a>
+	
+	<a class="btn btn-info btn-sm" target="_blank" href="side-by-side.php?url=<?php echo $url ?>"> <i class="fas fa-eye"></i> Side by Side</a>
+	
+	<a class="btn btn-info btn-sm" target="_blank" href="https://cpcss.wp-rocket.me/ui?=<?php echo $url ?>"> <i class="fas fa-code"></i> CPCSS UI Test</a>
+	
+	<a class="btn btn-warning btn-sm" target="_blank" href="license-validator.php=url=<?php echo $url ?>"> <i class="fas fa-key"></i> License Validation</a>
+		
+
   </div>
 
+
+   
 <?php endif; ?>
 
   <div class="container-fluid">
