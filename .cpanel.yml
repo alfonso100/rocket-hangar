@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/h4n64r2020/public_html/lab/
+    - /bin/cp -R * $DEPLOYPATH
