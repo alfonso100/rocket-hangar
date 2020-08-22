@@ -1,0 +1,149 @@
+<?php
+// License validation tool
+
+include('classes/loader.php'); 
+
+
+if($_GET['url']) :
+  $url = rtrim($_GET['url'], '/').'/';
+endif;
+
+if($_POST['websiteurl']) : 
+
+	$url 			= $_POST['websiteurl'];
+	$customeremail 	= $_POST['customeremail'];
+	$apikey 		= $_POST['apikey'];
+	$password 		= $_POST['password'];
+
+endif;
+
+?>
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/png" href="https://wphangar.com/lab/assets/images/favicon.png" />
+
+  
+    <title>Hangar for WP Rocket</title>
+  </head>
+  <body>
+    
+  <nav class="navbar navbar-expand-lg  navbar-light bg-light p-4">
+    <a class="navbar-brand" href="index.php?url=<?=$url?>"><i class="fas fa-rocket"></i> the hangar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+     </nav>
+
+
+  <div class="container-fluid">
+    <div class="grids">
+
+ 
+
+<div class="clearfix"></div>
+
+<div class="row p-4 py-0">
+
+	<div class="col-5">
+		<h2>License validation tool</h2>
+		<small>This form will run a license validation request against WP-Rockt.me server, and it will display the response we are getting from there. You can <a href="https://www.notion.so/wpmedia/How-to-track-a-license-validation-issue-with-Postman-ee9539fb65374ce8874be89231643f6b" target="_blank">read this doc for more information</a></small>
+		
+  <form action="license-validator.php" method="post">
+  <div class="form-group">
+    <label for="websiteurl">Website url</label>
+    <input name="websiteurl" type="text" class="form-control" id="websiteurl" aria-describedby="webHelp" placeholder="Enter website URL" autocomplete="false" value="<?php echo $url; ?>">
+    <small id="webHelp" class="form-text text-muted">The customer website. 
+    
+    <?php if($url) : ?>
+   		<a href="https://wp-rocket.me/wp-admin/edit.php?s=<?php echo cleanURL($url); ?>&unscoped_q=<?php echo cleanURL($url); ?>&post_status=all&post_type=website&action=-1&m=0&lang=en&paged=1&action2=-1" target="_blank">Find this URL</a>
+    <?php endif; ?>
+    
+    </small>
+  </div>
+
+  <div class="form-group">
+    <label for="customeremail">Customer Email</label>
+    <input name="customeremail" type="text" class="form-control" id="customeremail" aria-describedby="emailHelp" placeholder="Enter customer Email" autocomplete="off" value="<?php echo $customeremail; ?>">
+    <small id="emailHelp" class="form-text text-muted">You can get this from the user account page.</small>
+  </div>  
+
+  <div class="form-group">
+    <label for="apikey">API Key</label>
+    <input name="apikey" type="text" class="form-control" id="apikey" aria-describedby="apikeyHelp" placeholder="Enter API Key" autocomplete="off" value="<?php echo $apikey; ?>">
+    <small id="apikeyHelp" class="form-text text-muted">You can get this from the user account page.</small>
+  </div>    
+  
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input name="password" type="password" class="form-control" id="password" placeholder="Password" autocomplete="off" value="<?php echo $password; ?>">
+  </div>
+ 
+   <button type="submit" class="btn btn-primary">Validate it!</button>
+</form>
+
+	</div> 
+
+	<div class="col-1"></div>
+
+	<div class="col-5">
+
+<?php 
+
+if($password == 'Rocket2020!' ) :
+
+
+
+$useragent		= 'WordPress/4.9.6;'.$url.';3.1|'.$apikey.'|'.$customeremail.'|WP-Rocket|3.1|'.$apikey.'|'.$customeremail.'|'.$url.'|;" -H "X-Rocket: WordPress/4.9.6;'.$url.';3.1|'.$apikey.'|'.$customeremail.'|WP-Rocket|3.1|'.$apikey.'|'.$customeremail.'|'.$url.'|;';
+
+$curlcommand = 'curl -i -X POST -H "User-Agent: WordPress/4.9.6;'.$url.';3.1|'.$apikey.'|'.$customeremail.'|WP-Rocket|3.1|'.$apikey.'|'.$customeremail.'|'.$url.'|;" -H "X-Rocket: WordPress/4.9.6;'.$url.';3.1|'.$apikey.'|'.$customeremail.'|WP-Rocket|3.1|'.$apikey.'|'.$customeremail.'|'.$url.'|;" https://wp-rocket.me/valid_key.php';
+
+
+	// create user
+	$curl = curl_init();
+	curl_setopt_array($curl, array(
+	  CURLOPT_URL => "https://wp-rocket.me/valid_key.php",
+	  CURLOPT_RETURNTRANSFER => true,
+	  CURLOPT_ENCODING => "",
+	  CURLOPT_TIMEOUT => 30,
+	  CURLOPT_POSTFIELDS => "{\n\t\"password\":\"".$password."\",\n\"username\":\"".$username."\"\n,\n\"email\":\"".$useremail."\"\n,\n\"first_name\":\"".$first_name."\"\n,\n\"last_name\":\"".$last_name."\"\n}",
+	
+	  CURLOPT_USERAGENT => $useragent));
+	  $response = curl_exec($curl);
+	  $err = curl_error($curl);
+	  curl_close($curl);
+
+ if (strpos($response, 'true') !== false) {
+	 $response_class = 'alert-success';
+ } else {
+	 $response_class = 'alert-danger';
+}
+ ?>
+
+		<h2>WP Rocket API Response</h2>
+		
+		<div class="results alert <?php echo $response_class; ?>">
+			<?php echo $response; ?>
+		</div>
+		
+		<h4>CURL Request</h4>
+		<code><?php echo $curlcommand; ?></code>
+ 
+<?php endif; ?> 
+
+	</div> 
+
+
+ </div>
+
+
+<?php  include('inc/footer.php'); 
+	
+	

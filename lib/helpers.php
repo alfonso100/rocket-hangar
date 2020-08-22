@@ -1,23 +1,12 @@
 <?php 
 
-// read the filters cookie values and activates or deactivates the checkboxes
-function hangarFilters($checkbox_val) {
-	
-	$filters = $_GET['filters'];
+// clean URLs
 
-		if($filters) {
-			if(in_array($checkbox_val, $filters)) {
+function cleanURL($url) {
 
-			return 'checked';
-			} else {
-				return '';
-			}
+ 	$url = str_replace(array('http://','https://'), '', $url);
+ 	$url = rtrim($url, '/');
 
-		} else {
-			if($checkbox_val == 'all') {
-				return 'checked';
-			}
-		}
-	
+	return $url;
 }
 

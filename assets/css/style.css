@@ -34,7 +34,8 @@ nav i {
 }
 
 #filters {
-	text-align: center;
+	text-align: right;
+	margin: 1em 1em 0 1em;
 }
 
 
@@ -98,4 +99,16 @@ h5 {
     border: 6px solid #FFF;
     background: #FFF;
     box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.35);
+}
+
+.results {
+	font-family: monospace;
+	word-wrap: break-word;
+	margin-bottom: 40px;
+	font-size: 1.6em;
+	
+}
+
+code {
+	color: #666666;
 }

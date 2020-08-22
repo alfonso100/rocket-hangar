@@ -1,7 +1,10 @@
 <?php 
+	
+// Helpers
+require_once('lib/simple_html_dom.php');  // the parser library
+require_once('lib/helpers.php');  // the parser library
 
 //Classes
-require_once('lib/simple_html_dom.php');  // the parser library
 include('classes/class-widgets.php'); 	// a simple widget builder
 include('classes/class-headers.php'); 	// gets the URL response headers
 include('classes/class-hosting.php'); 	// gets the hosting information

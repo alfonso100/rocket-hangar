@@ -99,7 +99,7 @@ if ($url) :
 		$widget_body .= '<tr><td><trong>Mobile HTML cache</strong></td><td>'. $file_exists->checkURL($url.'wp-content/cache/wp-rocket/'.$url_parts[1].'index-mobile-'.$url_parts[0].'.html') .'</td></tr>';	
 
 		// webp cache
-		$widget_body .= '<tr><td><trong>Mobile HTML cache</strong></td><td>'. $file_exists->checkURL($url.'wp-content/cache/wp-rocket/'.$url_parts[1].'index-'.$url_parts[0].'-webp.html') .'</td></tr>';	
+		$widget_body .= '<tr><td><trong>WebP HTML cache</strong></td><td>'. $file_exists->checkURL($url.'wp-content/cache/wp-rocket/'.$url_parts[1].'index-'.$url_parts[0].'-webp.html') .'</td></tr>';	
 		
 		
 					
