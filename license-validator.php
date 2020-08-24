@@ -8,12 +8,19 @@ if($_GET['url']) :
   $url = rtrim($_GET['url'], '/').'/';
 endif;
 
+// default WP Rocket version
+$wprocket_version  = "3.1";
+
+
 if($_POST['websiteurl']) : 
 
-	$url 			= $_POST['websiteurl'];
-	$customeremail 	= $_POST['customeremail'];
-	$apikey 		= $_POST['apikey'];
-	$password 		= $_POST['password'];
+	$url 				= $_POST['websiteurl'];
+	$customeremail 		= $_POST['customeremail'];
+	$apikey 			= $_POST['apikey'];
+	$wordpress_version 	= $_POST['wordpress_version'];
+	$password 			= $_POST['password'];
+	$wprocket_version  = $_POST['wprocket_version'];
+
 
 endif;
 
@@ -75,16 +82,54 @@ endif;
     <small id="emailHelp" class="form-text text-muted">You can get this from the user account page.</small>
   </div>  
 
+   <div class="row">
+    <div class="col">
+	    
   <div class="form-group">
     <label for="apikey">API Key</label>
     <input name="apikey" type="text" class="form-control" id="apikey" aria-describedby="apikeyHelp" placeholder="Enter API Key" autocomplete="off" value="<?php echo $apikey; ?>">
     <small id="apikeyHelp" class="form-text text-muted">You can get this from the user account page.</small>
   </div>    
   
+    </div>
+     <div class="col">
+   
+  
+   <div class="form-group">
+    <label for="password">WordPress Version</label>
+	<select name="wordpress_version" id="wordpress_version" class="form-control">
+		<option value="">Select</option>
+		<option value="5.5" selected>5.5</option>
+		<option value="5.4">5.4</option>
+		<option value="5.3">5.3</option>
+		<option value="5.2">5.2</option>
+		<option value="5.1">5.1</option>
+		<option value="5.0">5.0</option>
+		<option value="4.9">4.9</option>
+	</select>
+  </div> 
+     </div>
+   </div>
+  
+   <div class="row">
+    <div class="col">
+	    
+  <div class="form-group">
+    <label for="wprocket_version">WP Rocket version</label>
+    <input name="wprocket_version" type="text" class="form-control" id="wprocket_version" aria-describedby="wprocket_versionlHelp" placeholder="Enter WP Rocket version Email" autocomplete="off" value="<?php echo $wprocket_version; ?>">
+    <small id="wprocket_versionlHelp" class="form-text text-muted">If you'd like to test validating for a specific WP Rocket version, you can manually add it here.</small>
+  </div>
+  
+    </div>
+    <div class="col">
   <div class="form-group">
     <label for="password">Password</label>
     <input name="password" type="password" class="form-control" id="password" placeholder="Password" autocomplete="off" value="<?php echo $password; ?>">
   </div>
+  
+    </div>
+</div>
+
  
    <button type="submit" class="btn btn-primary">Validate it!</button>
 </form>
@@ -101,9 +146,9 @@ if($password == 'Rocket2020!' ) :
 
 
 
-$useragent		= 'WordPress/4.9.6;'.$url.';3.1|'.$apikey.'|'.$customeremail.'|WP-Rocket|3.1|'.$apikey.'|'.$customeremail.'|'.$url.'|;" -H "X-Rocket: WordPress/4.9.6;'.$url.';3.1|'.$apikey.'|'.$customeremail.'|WP-Rocket|3.1|'.$apikey.'|'.$customeremail.'|'.$url.'|;';
+$useragent		= 'WordPress/'.$wordpress_version.';'.$url.';'.$wprocket_version.'|'.$apikey.'|'.$customeremail.'|WP-Rocket|'.$wprocket_version.'|'.$apikey.'|'.$customeremail.'|'.$url.'|;" -H "X-Rocket: WordPress/'.$wordpress_version.';'.$url.';'.$wprocket_version.'|'.$apikey.'|'.$customeremail.'|WP-Rocket|'.$wprocket_version.'|'.$apikey.'|'.$customeremail.'|'.$url.'|;';
 
-$curlcommand = 'curl -i -X POST -H "User-Agent: WordPress/4.9.6;'.$url.';3.1|'.$apikey.'|'.$customeremail.'|WP-Rocket|3.1|'.$apikey.'|'.$customeremail.'|'.$url.'|;" -H "X-Rocket: WordPress/4.9.6;'.$url.';3.1|'.$apikey.'|'.$customeremail.'|WP-Rocket|3.1|'.$apikey.'|'.$customeremail.'|'.$url.'|;" https://wp-rocket.me/valid_key.php';
+$curlcommand = 'curl -i -X POST -H "User-Agent: WordPress/'.$wordpress_version.';'.$url.';'.$wprocket_version.'|'.$apikey.'|'.$customeremail.'|WP-Rocket|'.$wprocket_version.'|'.$apikey.'|'.$customeremail.'|'.$url.'|;" -H "X-Rocket: WordPress/'.$wordpress_version.';'.$url.';'.$wprocket_version.'|'.$apikey.'|'.$customeremail.'|WP-Rocket|'.$wprocket_version.'|'.$apikey.'|'.$customeremail.'|'.$url.'|;" https://wp-rocket.me/valid_key.php';
 
 
 	// create user
@@ -113,8 +158,6 @@ $curlcommand = 'curl -i -X POST -H "User-Agent: WordPress/4.9.6;'.$url.';3.1|'.$
 	  CURLOPT_RETURNTRANSFER => true,
 	  CURLOPT_ENCODING => "",
 	  CURLOPT_TIMEOUT => 30,
-	  CURLOPT_POSTFIELDS => "{\n\t\"password\":\"".$password."\",\n\"username\":\"".$username."\"\n,\n\"email\":\"".$useremail."\"\n,\n\"first_name\":\"".$first_name."\"\n,\n\"last_name\":\"".$last_name."\"\n}",
-	
 	  CURLOPT_USERAGENT => $useragent));
 	  $response = curl_exec($curl);
 	  $err = curl_error($curl);
