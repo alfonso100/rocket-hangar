@@ -67,7 +67,7 @@ endif;
   <div class="form-group">
     <label for="websiteurl">Website url</label>
     <input name="websiteurl" type="text" class="form-control" id="websiteurl" aria-describedby="webHelp" placeholder="Enter website URL" autocomplete="false" value="<?php echo $url; ?>">
-    <small id="webHelp" class="form-text text-muted">The customer website. 
+    <small id="webHelp" class="form-text text-muted">The customer website. Use the full URL including https://. 
     
     <?php if($url) : ?>
    		<a href="https://wp-rocket.me/wp-admin/edit.php?s=<?php echo cleanURL($url); ?>&unscoped_q=<?php echo cleanURL($url); ?>&post_status=all&post_type=website&action=-1&m=0&lang=en&paged=1&action2=-1" target="_blank">Find this URL</a>
