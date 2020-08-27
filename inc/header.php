@@ -24,6 +24,8 @@
 	
 	<a class="btn btn-info btn-sm" target="_blank" href="https://cpcss.wp-rocket.me/ui?=<?php echo $url ?>"> <i class="fas fa-code"></i> CPCSS UI Test</a>
 	
+    <a class="btn btn-info btn-sm" target="_blank" href="https://rocketcdn.me/admin/website/website/?q=<?php echo $url ?>"> <i class="fas fa-code"></i>Search in RocketCDN</a>
+
 	<a class="btn btn-warning btn-sm" target="_blank" href="license-validator.php?url=<?php echo $url ?>"> <i class="fas fa-key"></i> License Validation</a>
 		
  </div>
