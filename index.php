@@ -165,11 +165,6 @@ if ($url) :
 
 
 
-
-
-
-
-
 endif; 
 
 include('inc/footer.php'); 
