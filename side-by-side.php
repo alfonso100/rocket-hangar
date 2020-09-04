@@ -6,7 +6,7 @@
 if($_GET['url']) :
 
   $url          = rtrim($_GET['url'], '/').'/';
-  $url_nocache  = $_GET['url'] .'?nocache';
+  $url_nocache  = $_GET['url'] .'?nowprocket';
 
 endif;
 ?>
@@ -65,9 +65,9 @@ if( $url) :  ?>
 	</div>
 
  <div class="col-6">
-		<h5>Non Cached Version:<br><a href="<?php echo $url ?>?nocache" target="_blank"><?php echo $url ?>?nocache</a></h5>
+		<h5>Non Cached Version:<br><a href="<?php echo $url ?>?nowprocket" target="_blank"><?php echo $url ?>?nowprocket</a></h5>
 
- 		<iframe  id="iframe2" class="browser" width="100%" frameborder="0"  height="800" src="<?php echo $url?>?nocache"></iframe>
+ 		<iframe  id="iframe2" class="browser" width="100%" frameborder="0"  height="800" src="<?php echo $url?>?nowprocket"></iframe>
  	</div> 
 
  </div>
