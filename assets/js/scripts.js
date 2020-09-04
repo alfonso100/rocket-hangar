@@ -27,11 +27,14 @@ $(document).ready(function(){
 	$('.filter-button-group').on( 'click', 'button', function() {
 
 
-	  var filterValue = $(this).attr('data-filter');
+	var filterValue = $(this).attr('data-filter');
 	  $grid.isotope({ filter: filterValue });
 
 	});
 
+
+	// tooltips
+	 $('[data-toggle="tooltip"]').tooltip()
 
 
 });
