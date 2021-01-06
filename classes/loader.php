@@ -12,5 +12,6 @@ include('classes/class-html.php'); 		// gets the HTML of the website for analysi
 include('classes/class-files.php'); 	// file verification tools
 include('classes/class-rocket.php'); 	// get WP Rocket enabled options
 include('classes/class-scanner.php'); 	// Scan HTML for strings
+include('classes/class-scanner-psi.php'); 	// Scan HTML for PSI Related strings
 
 

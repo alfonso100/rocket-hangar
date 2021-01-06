@@ -132,8 +132,8 @@ if ($url) :
   }
   echo $widget->display_widget('CSS Files', $widget_body, 'information css', 'fa-file');
 
-
- // info - JS files
+*/
+  //info - JS files
   $widget = new widget();
   $widget_body = 'List of JS files';
   $javascript_files = $rocket->javascript_files;
@@ -149,7 +149,7 @@ if ($url) :
   $widget_body = 'Inline JS';
   echo $widget->display_widget('Inline JS', $widget_body, 'information js', 'fa-file');
 
-
+/*
   // info - Prefetch DNS 
   $widget = new widget();
   $widget_body = 'Prefetch DNS requests URLs';

@@ -27,14 +27,29 @@ $(document).ready(function(){
 	$('.filter-button-group').on( 'click', 'button', function() {
 
 
-	var filterValue = $(this).attr('data-filter');
+	  var filterValue = $(this).attr('data-filter');
 	  $grid.isotope({ filter: filterValue });
 
 	});
 
 
-	// tooltips
-	 $('[data-toggle="tooltip"]').tooltip()
+
+	 
+	 //psi filters
+	var check;
+	$(".psicheck").on("click", function(){
+	    check = $(this).is(":checked");
+	    if(check) {
+	       $val = $(this).val();
+	       $(this).parent('div').addClass('active');
+	       $('.' + $val).show();
+	    } else {
+	       $val = $(this).val();
+	       $(this).parent('div').removeClass('active');
+	       $('.' + $val).hide();
+	      }
+	}); 
+	 
 
 
 });
