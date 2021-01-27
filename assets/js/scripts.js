@@ -77,7 +77,7 @@ $(document).ready(function () {
 		// We use this element to insert another element that we will use to copy the HTML content to the clipboard
 		const report_box = document.querySelector("#report-box");
 		// We execute the function that will copy to the clipboard and we pass the response and the element where the response will be copied temporary
-		await copyWithStyle(response, report_box);
+		await copyWithStyle(response.trim(), report_box);
 		const copyMessage = document.querySelector('#copy-message');
 		showCopyMessage('The response was copied!', copyMessage);
 	});
@@ -85,7 +85,7 @@ $(document).ready(function () {
 		// The HTML in the response block is extranted and saved in a constant
 		const response = $("#response-content-to-copy").html();
 		// We execute the function that will copy to the clipboard and we pass the response
-		await copyText(response);
+		await copyText(response.trim());
 		const copyMessage = document.querySelector('#copy-message');
 		showCopyMessage('The response was copied!', copyMessage);
 	});
