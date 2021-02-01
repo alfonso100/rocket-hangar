@@ -181,17 +181,17 @@ include('classes/loader.php');
 <div class="row p-4 py-0">
 	<div class="col-6">
 	
-		<h5>With WP Rocket: <a href="https://developers.google.com/speed/pagespeed/insights/?url=<?php echo $url ?>" target="_blank">Open report in a new tab</a></h5>
+		<h5>With WP Rocket: <a href="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>" target="_blank">Open report in a new tab</a></h5>
  	
 
- 		<!..iframe id="iframe1" scrolling="yes" class="browser" width="100%" frameborder="0" height="1100" src="https://developers.google.com/speed/pagespeed/insights/?url=<?php echo $url?>"></iframe..>
+ 		<!..iframe id="iframe1" scrolling="yes" class="browser" width="100%" frameborder="0" height="1100" src="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url?>"></iframe..>
 	
 	</div>
 
  <div class="col-6">
-		<h5>Not Cached: <a href="https://developers.google.com/speed/pagespeed/insights/?url=<?php echo $url ?>?nowprocket" target="_blank">Open report in a new tab</a></h5>
+		<h5>Not Cached: <a href="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>?nowprocket" target="_blank">Open report in a new tab</a></h5>
 
- 		<!--iframe  id="iframe2" class="browser" width="100%" frameborder="0"  height="1100" src="https://developers.google.com/speed/pagespeed/insights/?url=<?php echo $url?>?nowprocket"></iframe-->
+ 		<!--iframe  id="iframe2" class="browser" width="100%" frameborder="0"  height="1100" src="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url?>?nowprocket"></iframe-->
  	</div> 
 
  </div>

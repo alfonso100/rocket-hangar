@@ -148,7 +148,7 @@ include('classes/loader.php');
 									<button type="button" class="btn btn-outline-secondary" id="copy-text-button">Copy (Help Scout) <i class="far fa-copy"></i></button>
 								</div>
 								<div id="response-content-to-copy">
-									<p>Your site is definitely faster with WP Rocket. <br>Please see this side-by-side comparison of your performance reports, <a href="https://developers.google.com/speed/pagespeed/insights/?url=<?php echo $url ?>" target="_blank">cached</a> vs <a href="https://developers.google.com/speed/pagespeed/insights/?url=<?php echo $url ?>?nowprocket" target="_blank">non-cached</a>: [INSERT SCREENSHOT LINK HERE]</p>
+									<p>Your site is definitely faster with WP Rocket. <br>Please see this side-by-side comparison of your performance reports, <a href="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>" target="_blank">cached</a> vs <a href="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>?nowprocket" target="_blank">non-cached</a>: [INSERT SCREENSHOT LINK HERE]</p>
 
 									<p>I have tested your website with our diagnosis tool. This tool allows me to detect the most relevant WP Rocket features with a direct impact on your Pagespeed score.</p>
 									<?php
@@ -217,17 +217,17 @@ include('classes/loader.php');
 					<div class="row p-4 py-0">
 						<div class="col-6">
 
-							<h5>With WP Rocket: <a href="https://developers.google.com/speed/pagespeed/insights/?url=<?php echo $url ?>" target="_blank">Open report in a new tab</a></h5>
+							<h5>With WP Rocket: <a href="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>" target="_blank">Open report in a new tab</a></h5>
 
 
-							<iframe id="iframe1" scrolling="yes" class="browser" width="100%" frameborder="0" height="1100" src="https://developers.google.com/speed/pagespeed/insights/?url=<?php echo $url ?>"></iframe>
+							<iframe id="iframe1" scrolling="yes" class="browser" width="100%" frameborder="0" height="1100" src="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>"></iframe>
 
 						</div>
 
 						<div class="col-6">
-							<h5>Not Cached: <a href="https://developers.google.com/speed/pagespeed/insights/?url=<?php echo $url ?>?nowprocket" target="_blank">Open report in a new tab</a></h5>
+							<h5>Not Cached: <a href="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>?nowprocket" target="_blank">Open report in a new tab</a></h5>
 
-							<iframe id="iframe2" class="browser" width="100%" frameborder="0" height="1100" src="https://developers.google.com/speed/pagespeed/insights/?url=<?php echo $url ?>?nowprocket"></iframe>
+							<iframe id="iframe2" class="browser" width="100%" frameborder="0" height="1100" src="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>?nowprocket"></iframe>
 						</div>
 
 					</div>

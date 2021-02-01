@@ -14,7 +14,7 @@
   <body>
     
 <div id="filters" class="filter-button-group">
-	<a class="btn btn-primary btn-sm" target="_blank" href="https://developers.google.com/speed/pagespeed/insights/?url=<?php echo $url ?>"> <i class="fas fa-tachometer-alt"></i> Pagespeed</a>
+	<a class="btn btn-primary btn-sm" target="_blank" href="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>"> <i class="fas fa-tachometer-alt"></i> Pagespeed</a>
 	
 	<a class="btn btn-primary btn-sm" target="_blank" href="https://tools.pingdom.com/"> <i class="fas fa-tachometer-alt"></i> Pingdom</a>	
 	

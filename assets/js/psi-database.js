@@ -9,6 +9,18 @@ function makeId(value) {
     let id = value.replace(/\s+/g, '-').toLowerCase();
     return id;
 }
+/**
+ *
+ *
+ * @param {Array.<object>} array
+ * @param {string} property
+ * @return {Array.<object>} 
+ * @description Takes an array of objects and the name of the property which will be used to sort the the objects in the array.
+ */
+function sortObjectsArray(array, property) {
+    array.sort((a, b) => a[property].localeCompare(b[property]));
+    return array;
+}
 /** 
  * @type {Array.<Object.<string, string, string>>} 
  * @description An array of objects that have an id, name and content<html_string>.
@@ -196,5 +208,6 @@ psi_database = psi_database.map((element)=>{
     element.id = makeId(element.name);
     return element;
 });
+    psi_database = sortObjectsArray(psi_database, 'name');
 // console.log(window.psi_database);
 // console.log(psi_database);
