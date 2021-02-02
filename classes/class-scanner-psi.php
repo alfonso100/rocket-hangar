@@ -17,12 +17,12 @@
 							
 				if(	stripos($html, $warning[0]) !== false  ) { 
 					
-					$scan_output_enabled .= '<li><span style="font-weight: bold;">'.$warning[1].'</span><br>'.$warning[2].'. <a href="'.$warning[3].'">See doc</a></li>';
-					$number_of_enabled ++;
+					//$scan_output_enabled .= '<li><strong>'.$warning[1].'</strong><br>'.$warning[2].'. <a href="'.$warning[3].'">See doc</a></li>';
+					//$number_of_enabled ++;
 					
 				} else {
 					
-					$scan_output_disabled .= '<li><span style="font-weight: bold;">'.$warning[1].'</span><br>'.$warning[2].'.  <a href="'.$warning[3].'">See doc</a></li>';
+					$scan_output_disabled .= '<li><strong>'.$warning[1].'</strong><br>'.$warning[2].'.  <a href="'.$warning[3].'">See doc</a></li>';
 					$number_of_disabled ++;
 					
 				}
@@ -30,17 +30,17 @@
 				
 			endforeach;
 			
-			$html_result = '<p><span style="font-weight: bold;">Please activate the following options in WP Rocket:</span></p>';
+			$html_result = '<p><strong>Please activate the following options in WP Rocket:</strong></p>';
 			if($number_of_disabled > 0 ) {
 				$html_result .= '<ol>'.$scan_output_disabled.'</ol>';
 			} else {
 				$html_result .= '<p>All good, nothing else to enable!</p>';				
 			}
-			$html_result .= '<p><span style="font-weight: bold;">These options are already enabled and making your site faster:</span></p>';
+			//$html_result .= '<p><strong>These options are already enabled and making your site faster:</strong></p>';
 			if($number_of_enabled > 0 ) {
-				$html_result .= '<ol>'.$scan_output_enabled.'</ol>';
+			//	$html_result .= '<ol>'.$scan_output_enabled.'</ol>';
 			} else {
-				$html_result .= '<p>No WP Rocket features detected.</p>';				
+			//	$html_result .= '<p>No WP Rocket features detected.</p>';				
 			}
 			
 			return $html_result;

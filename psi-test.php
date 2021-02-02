@@ -31,6 +31,9 @@ include('classes/loader.php');
 	<link rel="shortcut icon" type="image/png" href="https://wphangar.com/lab/assets/images/favicon.png" />
 
 	<style>
+		body {
+			overflow-x: hidden;
+		}
 		h2 {
 			margin-bottom: 20px;
 		}
@@ -94,6 +97,24 @@ include('classes/loader.php');
 			transition-duration: 1s;
 			margin-right: 5px;
 		}
+		
+		.scaled-iframe {
+			width: 100%;
+			height: 100%;
+			 zoom: 0.68;
+			  -moz-transform: scale(0.68);
+			  -moz-transform-origin: 0 0;
+			  -o-transform: scale(0.68);
+			  -o-transform-origin: 0 0;
+			  -webkit-transform: scale(0.68);
+			  -webkit-transform-origin: 0 0;
+		}
+		
+		.iframe-wrap {
+			width: 1000px;
+			height: 1500px; 
+			overflow: hidden;
+		}
 	</style>
 
 
@@ -148,7 +169,7 @@ include('classes/loader.php');
 									<button type="button" class="btn btn-outline-secondary" id="copy-text-button">Copy (Help Scout) <i class="far fa-copy"></i></button>
 								</div>
 								<div id="response-content-to-copy">
-									<p>Your site is definitely faster with WP Rocket. <br>Please see this side-by-side comparison of your performance reports, <a href="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>" target="_blank">cached</a> vs <a href="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>?nowprocket" target="_blank">non-cached</a>: [INSERT SCREENSHOT LINK HERE]</p>
+									<p>Your site is definitely faster with WP Rocket. <br>Please see this side-by-side comparison of your performance reports, <a href="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>" target="_blank">cached</a> vs <a href="https://developers.google.com/speed/pagespeed/insights//?hl=en&url=<?php echo $url ?>?nowprocket" target="_blank">non-cached</a>: [INSERT SCREENSHOT LINK HERE]</p>
 
 									<p>I have tested your website with our diagnosis tool. This tool allows me to detect the most relevant WP Rocket features with a direct impact on your Pagespeed score.</p>
 									<?php
@@ -170,9 +191,9 @@ include('classes/loader.php');
 									?>
 
 									<p>
-										<span style="font-weight: bold;"><b>
-											Based on Pagespeed recommendations, here I send you some specific performance optimization tips for your website:
-										</b></span>
+										
+We have covered most of the recommendations in <span style="font-weight: bold;"><b><a href="https://docs.wp-rocket.me/category/1378-pagespeed">our dedicated PageSpeed documentation</a>.</b></span> Below, I'm linking specific articles according to the results obtained in the PageSpeed test:
+										
 									</p>
 									<ul id="response-psi-opportunities-list">
 									</ul>
@@ -181,7 +202,7 @@ include('classes/loader.php');
 						</div>
 
 						<div class="col-6">
-							<h4>3 - Add some opportunities and recommendations</h4>
+							<h4>3 - Add some opportunities and recommendations <</h4>
 							<small>From this list, add some of the <span style="font-weight: bold;"><b>Opportunities</b></span> from the Pagespeed report gave you for the <em>cached</em> version of the website.</small>
 
 							<br><br>
@@ -219,15 +240,17 @@ include('classes/loader.php');
 
 							<h5>With WP Rocket: <a href="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>" target="_blank">Open report in a new tab</a></h5>
 
-
-							<iframe id="iframe1" scrolling="yes" class="browser" width="100%" frameborder="0" height="1100" src="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>"></iframe>
-
+							<div class="iframe-wrap">
+							<iframe id="iframe1"  scrolling="yes" class="browser scaled-iframe"  frameborder="0"  src="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>"></iframe>
+							</div>
 						</div>
 
 						<div class="col-6">
 							<h5>Not Cached: <a href="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>?nowprocket" target="_blank">Open report in a new tab</a></h5>
-
-							<iframe id="iframe2" class="browser" width="100%" frameborder="0" height="1100" src="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>?nowprocket"></iframe>
+							
+							<div class="iframe-wrap">
+							<iframe id="iframe2" class="browser scaled-iframe"  frameborder="0" src="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>?nowprocket"></iframe>
+							</div>
 						</div>
 
 					</div>
