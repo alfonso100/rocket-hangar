@@ -58,7 +58,7 @@ let psi_database = [
         name: 'Serve images in next-gen formats',
         content: `
         <li class="serve-images-in-next-gen-formats">
-            <p><span style="font-weight: bold;"><b>Serve images in next-gen formats</b></span><br>It is recommended to use next generation formats for your images. Please check: <a href="https://docs.wp-rocket.me/article/1394-serve-images-in-next-gen-formats">https://docs.wp-rocket.me/article/1394-serve-images-in-next-gen-formats/a><br><br>          
+            <p><span style="font-weight: bold;"><b>Serve images in next-gen formats</b></span><br>It is recommended to use more efficient formats, like WebP, for your images. Please check: <a href="https://docs.wp-rocket.me/article/1394-serve-images-in-next-gen-formats">https://docs.wp-rocket.me/article/1394-serve-images-in-next-gen-formats/a><br><br>          
             </p>
         </li>`,
     },
@@ -115,7 +115,7 @@ let psi_database = [
         name: 'Minimize main thread work',
         content: `
         <li class="minimize-main-thread-work">
-            <p><span style="font-weight: bold;"><b>Minimize main thread work</b></span><br>If the scripts and styles needed to display the web are too many and too big, the browser will be kept busy and the website will remain irresponsive. See more in our article: <a href="https://docs.wp-rocket.me/article/1419-minimize-main-thread-work">https://docs.wp-rocket.me/article/1419-minimize-main-thread-work</a><br><br>
+            <p><span style="font-weight: bold;"><b>Minimize main thread work</b></span><br>If the scripts and styles needed to display the web are too many and too big, the browser will be kept busy and the website will remain unresponsive. See more in our article: <a href="https://docs.wp-rocket.me/article/1419-minimize-main-thread-work">https://docs.wp-rocket.me/article/1419-minimize-main-thread-work</a><br><br>
             </p>
         </li>`,
     },
@@ -131,7 +131,7 @@ let psi_database = [
         name: 'Serve static assets with an efficient cache policy',
         content: `
         <li class="serve-static-assets-with-an-efficient-cache-policy">
-            <p><span style="font-weight: bold;"><b>Serve static assets with an efficient cache policy</b></span><br>Browser caching rules sohuld be kept optimized. See our article: <a href="https://docs.wp-rocket.me/article/1397-serve-static-assets-with-an-efficient-cache-policy">https://docs.wp-rocket.me/article/1397-serve-static-assets-with-an-efficient-cache-policy</a><br><br>
+            <p><span style="font-weight: bold;"><b>Serve static assets with an efficient cache policy</b></span><br>Browser caching rules should be kept optimized. See our article: <a href="https://docs.wp-rocket.me/article/1397-serve-static-assets-with-an-efficient-cache-policy">https://docs.wp-rocket.me/article/1397-serve-static-assets-with-an-efficient-cache-policy</a><br><br>
             </p>
         </li>`,
     },
@@ -140,7 +140,7 @@ let psi_database = [
         name: 'Reduce the impact of third party code',
         content: `
         <li class="reduce-the-impact-of-third-party-code">
-            <p><span style="font-weight: bold;"><b>Reduce the impact of third party code</b></span><br>External resources should be added carefully to avoid hight impact on your site's loading page. See our article: <a href="https://docs.wp-rocket.me/article/1413-reduce-the-impact-of-third-party-code">https://docs.wp-rocket.me/article/1413-reduce-the-impact-of-third-party-code</a><br><br>
+            <p><span style="font-weight: bold;"><b>Reduce the impact of third party code</b></span><br>External resources should be added carefully to avoid high impact on your site's loading page. See our article: <a href="https://docs.wp-rocket.me/article/1413-reduce-the-impact-of-third-party-code">https://docs.wp-rocket.me/article/1413-reduce-the-impact-of-third-party-code</a><br><br>
             </p>
         </li>`,
     },
@@ -204,7 +204,7 @@ let psi_database = [
         name: 'Avoid Document write',
         content: `
         <li class="avoid-document-write">
-            <p><span style="font-weight: bold;"><b>Avoid Document write</b></span><br>The browser stops rendinrg the pages when document.write() is being executed so we should avoid having scripts using it. Please check: <a href="https://docs.wp-rocket.me/article/1409-avoid-document-write">https://docs.wp-rocket.me/article/1409-avoid-document-write</a><br><br>
+            <p><span style="font-weight: bold;"><b>Avoid Document write</b></span><br>The browser stops rendering the pages when document.write() is being executed so we should avoid having scripts using it. Please check: <a href="https://docs.wp-rocket.me/article/1409-avoid-document-write">https://docs.wp-rocket.me/article/1409-avoid-document-write</a><br><br>
             </p>
         </li>`,
     }, 
@@ -220,7 +220,7 @@ let psi_database = [
         name: 'Keep request counts low and transfer sizes small',
         content: `
         <li class="keep-request-counts-low-and-transfer-sizes-small">
-            <p><span style="font-weight: bold;"><b>Keep request counts low and transfer sizes small</b></span><br>This audit provides information on your sites number and size of requests so that you have in mind. Please see our related article: <a href="https://docs.wp-rocket.me/article/1416-keep-request-counts-low-and-transfer-sizes-small">https://docs.wp-rocket.me/article/1416-keep-request-counts-low-and-transfer-sizes-small</a><br><br>
+            <p><span style="font-weight: bold;"><b>Keep request counts low and transfer sizes small</b></span><br>This audit provides information on your site's number and size of requests. Please see our related article: <a href="https://docs.wp-rocket.me/article/1416-keep-request-counts-low-and-transfer-sizes-small">https://docs.wp-rocket.me/article/1416-keep-request-counts-low-and-transfer-sizes-small</a><br><br>
             </p>
         </li>`,
     },   
@@ -228,7 +228,7 @@ let psi_database = [
         name: 'Avoid Multiple Page Redirects',
         content: `
         <li class="avoid-multiple-page-redirects">
-            <p><span style="font-weight: bold;"><b>Avoid Multiple Page Redirects</b></span><br>This one will be trigered if a page has two or more redirects. Please see our related article: <a href="https://docs.wp-rocket.me/article/1388-avoid-multiple-page-redirects">https://docs.wp-rocket.me/article/1388-avoid-multiple-page-redirects</a><br><br>
+            <p><span style="font-weight: bold;"><b>Avoid Multiple Page Redirects</b></span><br>This one will be triggered if a page has two or more redirects. Please see our related article: <a href="https://docs.wp-rocket.me/article/1388-avoid-multiple-page-redirects">https://docs.wp-rocket.me/article/1388-avoid-multiple-page-redirects</a><br><br>
             </p>
         </li>`,
     },
