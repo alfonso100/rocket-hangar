@@ -58,7 +58,7 @@ let psi_database = [
         name: 'Serve images in next-gen formats',
         content: `
         <li class="serve-images-in-next-gen-formats">
-            <p><span style="font-weight: bold;"><b>Serve images in next-gen formats</b></span><br>It is recommended to use more efficient formats, like WebP, for your images. Please check: <a href="https://docs.wp-rocket.me/article/1394-serve-images-in-next-gen-formats">https://docs.wp-rocket.me/article/1394-serve-images-in-next-gen-formats/a><br><br>          
+            <p><span style="font-weight: bold;"><b>Serve images in next-gen formats</b></span><br>It is recommended to use more efficient formats, like WebP, for your images. Please check: <a href="https://docs.wp-rocket.me/article/1394-serve-images-in-next-gen-formats">https://docs.wp-rocket.me/article/1394-serve-images-in-next-gen-formats</a><br><br>          
             </p>
         </li>`,
     },
