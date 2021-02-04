@@ -16,16 +16,19 @@ $(document).ready(function () {
 	$('#filters button').on('click', function () {
 		$('#filters button').removeClass("btn-primary").addClass('btn-outline-dark');
 		$(this).removeClass('btn-outline-dark').addClass('btn-primary');
-
 	});
 
+	$('#fix-button').on('click', function () {
+		$('.follower').toggleClass('fixed');
+		//$(this).removeClass('btn-outline-dark').addClass('btn-primary');
+	});
+	
 	// init Isotope
 	var $grid = $('.grid').isotope({
 		// options
 	});
 	// filter items on button click
 	$('.filter-button-group').on('click', 'button', function () {
-
 
 		var filterValue = $(this).attr('data-filter');
 		$grid.isotope({ filter: filterValue });
@@ -81,6 +84,8 @@ $(document).ready(function () {
 		const copyMessage = document.querySelector('#copy-message');
 		showCopyMessage('The response was copied!', copyMessage);
 	});
+	
+	
 	$("#copy-text-button").on("click", async function () {
 		// The HTML in the response block is extranted and saved in a constant
 		const response = $("#response-content-to-copy").html();
@@ -89,6 +94,8 @@ $(document).ready(function () {
 		const copyMessage = document.querySelector('#copy-message');
 		showCopyMessage('The response was copied!', copyMessage);
 	});
+	
+	
 });
 /**
  *
@@ -174,3 +181,5 @@ function htmlToElement(html) {
     template.innerHTML = html;
     return template.content.firstChild;
 }
+
+

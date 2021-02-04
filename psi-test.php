@@ -10,7 +10,7 @@ define('MAX_FILE_SIZE', 2000000); // Simple HTML parser has a low limit of 60000
 
 if ($_GET['url']) :
 
-	$url          = rtrim($_GET['url'], '/') . '/';
+	$url          = rtrim($_GET['url'], '/');
 	$url_nocache  = $_GET['url'] . '?nowprocket';
 
 endif;
@@ -57,18 +57,19 @@ include('classes/loader.php');
 		}
 
 		.form-check {
-			padding: 5px;
+			padding: 2px;
 			background: #eaeaea;
 			border-radius: 10px;
-			margin: 5px;
+			margin: 2px;
 			border: 2px solid #EAEAEA;
+			font-size: 0.9rem;
 		}
 
 		.form-check.active {
-			padding: 5px;
+			padding: 3px;
 			background: #FFF;
 			border-radius: 10px;
-			margin: 5px;
+			margin: 3px;
 			border: 2px solid #333;
 		}
 
@@ -114,6 +115,21 @@ include('classes/loader.php');
 			width: 1000px;
 			height: 1500px; 
 			overflow: hidden;
+		}
+		
+		
+		.fixed {
+			position: fixed;
+		    width: 600px;
+		    top: 10px;
+		    right: 10px;
+		    z-index: 10000;
+		    background-color: #FFF;
+		    padding: 10px;
+		 	border-radius: 6px;
+		 	box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.35);
+		 	height: 98%;
+		 	overflow: scroll;
 		}
 	</style>
 
@@ -202,16 +218,18 @@ We have covered most of the recommendations in <span style="font-weight: bold;">
 						</div>
 
 						<div class="col-6">
-							<h4>3 - Add some opportunities and recommendations <</h4>
+							<div class="follower">
+							<h4>3 - Add some opportunities and recommendations <button type="button" class="btn btn-outline-secondary" id="fix-button">float it <i class="fas fa-window-restore "></i></button></h4>
 							<small>From this list, add some of the <span style="font-weight: bold;"><b>Opportunities</b></span> from the Pagespeed report gave you for the <em>cached</em> version of the website.</small>
 
 							<br><br>
+							
 							<form id="psi-opportunities-list" method="post">
 
 
 							</form>
 
-
+							</div>
 
 						</div>
 					</div>
