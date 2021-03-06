@@ -239,6 +239,14 @@ let psi_database = [
             <p><span style="font-weight: bold;"><b>Avoid serving legacy JavaScript to modern browsers</b></span><br>This means your site is using old JavaScript rules for browsers that don’t need them, and this should be avoided. Please see our related article: <a href="https://docs.wp-rocket.me/article/1386-avoid-serving-legacy-javascript-to-modern-browsers">https://docs.wp-rocket.me/article/1386-avoid-serving-legacy-javascript-to-modern-browsers</a><br><br>
             </p>
         </li>`,
+    }, 
+		{
+        name: 'Use HTTP/2',
+        content: `
+        <li class="use-http-2">
+            <p><span style="font-weight: bold;"><b>Use HTTP/2</b></span><br>Make sure your website is using the HTTP/2 protocol, which enables a <a href="https://developers.google.com/web/fundamentals/performance/http2">more efficient use of network resources</a>. This is not something that can be set at WP Rocket’s level. HTTP/2 needs to be configured at the server, so you will need to ask your hosting provider about this; or use Cloudflare and enable its HTTP/2 feature in the Network tab; Or you can also use our service, <a href="https://wp-rocket.me/rocketcdn/">RocketCDN</a>.<br><br>
+            </p>
+        </li>`,        
     },
     // {
     //     id: makeId(''),
