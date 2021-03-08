@@ -248,6 +248,22 @@ let psi_database = [
             </p>
         </li>`,        
     },
+   {
+        name: 'Lazy load third-party resources with facades',
+        content: `
+        <li class="lazy-load-third-party-resources-with-facades">
+            <p><span style="font-weight: bold;"><b>Lazy load third-party resources with facades</b></span><br>This audit highlights third-party embeds which can be lazily loaded on interaction. Please see our related article: <a href="https://docs.wp-rocket.me/article/1458-lazy-load-third-party-resources-with-facades">https://docs.wp-rocket.me/article/1458-lazy-load-third-party-resources-with-facades</a><br><br>
+            </p>
+        </li>`,
+    },	
+    {
+        name: 'Image elements do not have explicit width and height',
+        content: `
+        <li class="image-elements-do-not-have-explicit-width-and-heights">
+            <p><span style="font-weight: bold;"><b>Image elements do not have explicit width and height</b></span><br>Images and/or videos that do not have explicit width and height attributes can cause large layout shifts as your page loads. Please see our related article: <a href="https://docs.wp-rocket.me/article/1471-image-elements-do-not-have-explicit-width-and-height">https://docs.wp-rocket.me/article/1471-image-elements-do-not-have-explicit-width-and-height</a><br><br>
+            </p>
+        </li>`,
+    },
     // {
     //     id: makeId(''),
     //     name: '',
