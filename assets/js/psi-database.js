@@ -196,7 +196,7 @@ let psi_database = [
         name: 'Does not use passive listeners to improve scrolling performance',
         content: `
         <li class="does-not-use-passive-listeners-to-improve-scrolling-performance">
-            <p><span style="font-weight: bold;"><b>Does not use passive listeners to improve scrolling performance</b></span><br>The scrolling experience can be affected by touch and wheel event listeners and therefore, making the site feel as if it was non-responsive. Please check: <a href="https://docs.wp-rocket.me/article/1381-minify-javascript-pagespeed">https://docs.wp-rocket.me/article/1400-does-not-use-passive-listeners-to-improve-scrolling-performance</a><br><br>
+            <p><span style="font-weight: bold;"><b>Does not use passive listeners to improve scrolling performance</b></span><br>The scrolling experience can be affected by touch and wheel event listeners and therefore, making the site feel as if it was non-responsive. Please check: <a href="https://docs.wp-rocket.me/article/1400-does-not-use-passive-listeners-to-improve-scrolling-performance">https://docs.wp-rocket.me/article/1400-does-not-use-passive-listeners-to-improve-scrolling-performance</a><br><br>
             </p>
         </li>`,
     },   
