@@ -10,8 +10,8 @@ define('MAX_FILE_SIZE', 2000000); // Simple HTML parser has a low limit of 60000
 
 if ($_GET['url']) :
 
-	$url          = rtrim($_GET['url'], '/');
-	$url_nocache  = $_GET['url'] . '?nowprocket';
+	$url          = $_GET['url'];
+	$url_nocache  = $url . '?nowprocket';
 
 endif;
 
