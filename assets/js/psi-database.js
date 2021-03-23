@@ -264,6 +264,15 @@ let psi_database = [
             </p>
         </li>`,
     },
+
+     {
+        name: 'Preload Largest Contentful Paint image',
+        content: `
+        <li class="preload-largest-contentful-paint-image">
+            <p><span style="font-weight: bold;"><b>Preload Largest Contentful Paint image</b></span><br>The image https://yourdomain.com/your-lcp-image.jpg<br>is being flagged as the <a href="https://docs.wp-rocket.me/article/1387-largest-contentful-paint">Largest Contentful Paint element</a> and, according to the recommendations, it should be preloaded in order to improve the performance.<br><br>To achieve this you can follow these steps:<br><ol><li>Install the Insert Headers and Footers plugin.</li><li>Add the code: <pre><link rel="preload" href="https://yourdomain.com/your-lcp-image.jpg" as="image"></pre> in the Scripts in Header text area.</li><li>Clear WP Rocket's cache.</li></ol><br><br>
+            </p>
+        </li>`,
+    },   
     // {
     //     id: makeId(''),
     //     name: '',
