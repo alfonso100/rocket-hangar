@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print PSI IDs</title>
+    <style>
+        div pre {
+            font-size: 16;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="print-here">
+
+    </div>
+</body>
+<script src="assets/js/engine/psi/psi.js"></script>
+<script>
+    (async function () {
+        const psiTool = new PsiTool('https://wp-rocket.me/');
+
+        const psiResult = await psiTool.run();
+        const arrayResult = [...psiResult.all_failed, ...psiResult.passed];
+        // console.log(allResults);
+        const printHere = document.getElementById('print-here');
+        console.log(arrayResult.length);
+        arrayResult.forEach((audit) => {
+            let toPrint = `
+            {
+                id: ${audit.id},
+                title: ${audit.title},
+            }
+            `
+            let newPre = document.createElement('pre');
+            newPre.innerHTML  = toPrint;
+            printHere.appendChild(newPre);
+        });
+    })();
+
+</script>
+
+</html>

@@ -349,5 +349,6 @@ We have covered most of the recommendations in <span style="font-weight: bold;">
 
 
 
+			<script src="assets/js/engine/psi/psi.js"></script>
 			<?php
 			include('inc/footer.php');
