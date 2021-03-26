@@ -10,7 +10,13 @@
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/masonry.pkgd.min.js"></script>
     <script src="assets/js/isotope.pkgd.min.js"></script>
-    <script src="assets/js/psi-database.js"></script>
+    <?php 
+      if (isset($additionalScripts)) {
+        foreach($additionalScripts as $script) {
+          echo "<script src=\"$script\"></script>";
+        }
+      }
+    ?>
     <script src="assets/js/scripts.js"></script>
   </body>
 </html>

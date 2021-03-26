@@ -34,6 +34,7 @@ include('classes/loader.php');
 		body {
 			overflow-x: hidden;
 		}
+
 		h2 {
 			margin-bottom: 20px;
 		}
@@ -44,6 +45,31 @@ include('classes/loader.php');
 
 		.box {
 			margin-bottom: 40px;
+		}
+
+		.spinner {
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 20px;
+		}
+
+		.spinner-container {
+			text-align: center;
+		}
+
+		.spinner-text {
+			margin-top: 16px;
+			animation: pulse 0.7s infinite;
+			animation-direction: alternate;
+			animation-delay: 0s;
+		}
+		@keyframes pulse {
+			0% {
+				opacity: 1;
+			}
+			100% {
+				opacity: 0;
+			}
 		}
 
 		.report {
@@ -92,44 +118,45 @@ include('classes/loader.php');
 			padding-bottom: 20px;
 			text-align: right;
 		}
+
 		.copy-message {
 			opacity: 0;
 			transition: all;
 			transition-duration: 1s;
 			margin-right: 5px;
 		}
-		
+
 		.scaled-iframe {
 			width: 100%;
 			height: 100%;
-			 zoom: 0.68;
-			  -moz-transform: scale(0.68);
-			  -moz-transform-origin: 0 0;
-			  -o-transform: scale(0.68);
-			  -o-transform-origin: 0 0;
-			  -webkit-transform: scale(0.68);
-			  -webkit-transform-origin: 0 0;
+			zoom: 0.68;
+			-moz-transform: scale(0.68);
+			-moz-transform-origin: 0 0;
+			-o-transform: scale(0.68);
+			-o-transform-origin: 0 0;
+			-webkit-transform: scale(0.68);
+			-webkit-transform-origin: 0 0;
 		}
-		
+
 		.iframe-wrap {
 			width: 1000px;
-			height: 1500px; 
+			height: 1500px;
 			overflow: hidden;
 		}
-		
-		
+
+
 		.fixed {
 			position: fixed;
-		    width: 600px;
-		    top: 10px;
-		    right: 10px;
-		    z-index: 10000;
-		    background-color: #FFF;
-		    padding: 10px;
-		 	border-radius: 6px;
-		 	box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.35);
-		 	height: 98%;
-		 	overflow: scroll;
+			width: 600px;
+			top: 10px;
+			right: 10px;
+			z-index: 10000;
+			background-color: #FFF;
+			padding: 10px;
+			border-radius: 6px;
+			box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.35);
+			height: 98%;
+			overflow: scroll;
 		}
 	</style>
 
@@ -169,7 +196,11 @@ include('classes/loader.php');
 
 			<div class="clearfix"></div>
 			<?php if ($url) :  ?>
-				<div class="box">
+				<div class="box spinner-container">
+					<img class="spinner" src="assets/images/rocket.gif">
+					<h3 class="spinner-text">Waiting for Google PageSpeed Insights results...</h3>
+				</div>
+				<div class="box hidden" id="results-box">
 					<div class="row px-4 py-0">
 
 						<div class="col-6">
@@ -207,9 +238,9 @@ include('classes/loader.php');
 									?>
 
 									<p>
-										
-We have covered most of the recommendations in <span style="font-weight: bold;"><b><a href="https://docs.wp-rocket.me/category/1378-pagespeed">our dedicated PageSpeed documentation</a>.</b></span> Below, I'm linking specific articles according to the results obtained in the PageSpeed test:
-										
+
+										We have covered most of the recommendations in <span style="font-weight: bold;"><b><a href="https://docs.wp-rocket.me/category/1378-pagespeed">our dedicated PageSpeed documentation</a>.</b></span> Below, I'm linking specific articles according to the results obtained in the PageSpeed test:
+
 									</p>
 									<ul id="response-psi-opportunities-list">
 									</ul>
@@ -219,15 +250,16 @@ We have covered most of the recommendations in <span style="font-weight: bold;">
 
 						<div class="col-6">
 							<div class="follower">
-							<h4>3 - Add some opportunities and recommendations <button type="button" class="btn btn-outline-secondary" id="fix-button">float it <i class="fas fa-window-restore "></i></button></h4>
-							<small>From this list, add some of the <span style="font-weight: bold;"><b>Opportunities</b></span> from the Pagespeed report gave you for the <em>cached</em> version of the website.</small>
+								<h4>3 - Add some opportunities and recommendations <button type="button" class="btn btn-outline-secondary" id="fix-button">float it <i class="fas fa-window-restore "></i></button></h4>
+								<small>From this list, add some of the <span style="font-weight: bold;"><b>Opportunities</b></span> from the Pagespeed report gave you for the <em>cached</em> version of the website.</small>
 
-							<br><br>
-							
-							<form id="psi-opportunities-list" method="post">
+								<br><br>
 
+								<form id="psi-opportunities-list" method="post">
+									<div>
 
-							</form>
+									</div>
+								</form>
 
 							</div>
 
@@ -259,15 +291,15 @@ We have covered most of the recommendations in <span style="font-weight: bold;">
 							<h5>With WP Rocket: <a href="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>" target="_blank">Open report in a new tab</a></h5>
 
 							<div class="iframe-wrap">
-							<iframe id="iframe1"  scrolling="yes" class="browser scaled-iframe"  frameborder="0"  src="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>"></iframe>
+								<iframe id="iframe1" scrolling="yes" class="browser scaled-iframe" frameborder="0" src="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>"></iframe>
 							</div>
 						</div>
 
 						<div class="col-6">
 							<h5>Not Cached: <a href="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>?nowprocket" target="_blank">Open report in a new tab</a></h5>
-							
+
 							<div class="iframe-wrap">
-							<iframe id="iframe2" class="browser scaled-iframe"  frameborder="0" src="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>?nowprocket"></iframe>
+								<iframe id="iframe2" class="browser scaled-iframe" frameborder="0" src="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>?nowprocket"></iframe>
 							</div>
 						</div>
 
@@ -348,7 +380,14 @@ We have covered most of the recommendations in <span style="font-weight: bold;">
 			<?php endif; ?>
 
 
-
+			<!-- <script src="assets/js/psi-database.js"></script>
 			<script src="assets/js/engine/psi/psi.js"></script>
+			<script src="assets/js/engine/psi-test/psi-test.js"></script>
+			<script src="assets/js/scripts.js"></script> -->
 			<?php
+			$additionalScripts = [
+				'assets/js/psi-database.js',
+				'assets/js/engine/psi/psi.js',
+				'assets/js/engine/psi-test/psi-test.js',
+			];
 			include('inc/footer.php');

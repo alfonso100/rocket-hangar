@@ -33,10 +33,6 @@ class PsiTool {
             passed: this.getPassed(audits),
             all_failed: [...opportunities, ...diagnostics],
         };
-        console.log(audits);
-        console.log(auditRefs);
-        console.log(mergeAudits);
-        console.log(finalResult);
         return finalResult;
     }
 
@@ -46,7 +42,6 @@ class PsiTool {
         for (let key in this._parameters) {
             query += `&${key}=${this._parameters[key]}`;
         }
-        console.log(`\n${query}\n`);
         return query;
     }
     /**
@@ -115,6 +110,16 @@ class PsiTool {
             newAuditRefs[auditRef.id] = auditRef;
         });
         return newAuditRefs;
+    }
+    /**
+     * @param {any} audits
+     */
+    auditsToObject(audits) {
+        let newAudits = {};
+        audits.forEach((/** @type {any} */ audit) => {
+            newAudits[audit.id] = audit;
+        });
+        return newAudits;
     }
 }
 
