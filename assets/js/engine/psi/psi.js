@@ -51,9 +51,9 @@ class PsiTool {
         switch (audit.scoreDisplayMode) {
             case 'manual':
             case 'notApplicable':
+            case 'informative': // These does not pass google's tests, but they are irrelevant (e.g. Keep requests count low) so I marked it as if they passed the test
                 return true;
             case 'error':
-            case 'informative':
                 return false;
             case 'numeric':
             case 'binary':
