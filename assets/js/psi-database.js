@@ -22,7 +22,7 @@ function sortObjectsArray(array, property) {
     return array;
 }
 /** 
- * @type {Array.<Object.<string, string, string>>} 
+ * @type {Array.<Object>} 
  * @description An array of objects that have an id, name and content<html_string>.
  * 
 */

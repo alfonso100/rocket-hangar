@@ -127,7 +127,7 @@ async function copyText(toCopy) {
  *
  *
  * @param {string} toCopy
- * @param {HTMLElement} element
+ * @param {any} element
  */
 async function copyWithStyle(toCopy, element) {
     /**
@@ -164,13 +164,13 @@ async function setScrollPosition(position) {
  *
  *
  * @param {string} message
- * @param {HTMLElement} element
+ * @param {any} element
  */
 async function showCopyMessage(message, element) {
     element.innerHTML = message;
-    element.style.opacity = 1;
+    element.style.opacity = '1';
     setTimeout(function () {
-        element.style.opacity = 0;
+        element.style.opacity = '0';
         setTimeout(function () {
             element.innerHTML = '';
         }, 1000)

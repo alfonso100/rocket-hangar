@@ -2,7 +2,7 @@
 const PASS_THRESHOLD = 0.9;
 class PsiTool {
     _api_url = 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed';
-    _api_key = 'AIzaSyAg8yVZHvk_-_TB-Cm7aoCFI7i8bK8ugMM';
+    _api_key = 'AIzaSyAg8yVZHvk_-_TB-Cm7aoCFI7i8bK8ugMM'; // WP MEDIA API KEY (Production)
     _parameters = {
         locale: 'en_US',
         url: '',
