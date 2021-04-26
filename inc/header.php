@@ -14,21 +14,25 @@
   <body>
     
 <div id="filters" class="filter-button-group">
-	<a class="btn btn-primary btn-sm" target="_blank" href="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>"> <i class="fas fa-tachometer-alt"></i> Pagespeed</a>
-	
-	<a class="btn btn-primary btn-sm" target="_blank" href="https://tools.pingdom.com/"> <i class="fas fa-tachometer-alt"></i> Pingdom</a>	
-	
-	<a class="btn btn-primary btn-sm" target="_blank" href="https://gtmetrix.com?url=<?php echo $url ?>"> <i class="fas fa-tachometer-alt"></i> GT Metrix</a>
 
-    <a class="btn btn-secondary btn-sm" target="_blank" href="https://viewdns.info/reverseip/?host=<?php echo cleanURL($url) ?>" data-toggle="tooltip" data-placement="bottom" title="ViewDNS can be used to list the number of websites sharing the same server with this domain"> <i class="fas fa-eye"></i> ViewDNS info</a>
-	
-	<a class="btn btn-info btn-sm" target="_blank" href="side-by-side.php?url=<?php echo $url ?>" data-toggle="tooltip" data-placement="bottom" title="Side-by-side visual comparation of Cached vs non-cached versions of a website"> <i class="fas fa-eye"></i> Side by Side</a>
-	
-	<a class="btn btn-info btn-sm" target="_blank" href="https://cpcss.wp-rocket.me/ui?=<?php echo $url ?>"> <i class="fas fa-code"></i> CPCSS UI Test</a>
-	
-    <a class="btn btn-info btn-sm" target="_blank" href="https://rocketcdn.me/admin/website/website/?q=<?php echo $url ?>"> <i class="fas fa-code"></i>Search in RocketCDN</a>
 
-	<a class="btn btn-warning btn-sm" target="_blank" href="license-validator.php?url=<?php echo $url ?>" data-toggle="tooltip" data-placement="bottom" title="This tool can be used to validate a license against WP Rocket API using a combination of URL email and API Key"> <i class="fas fa-key"></i> License Validation</a>
+	<a class="btn btn-primary btn-xs" target="_blank" href="https://developers.google.com/speed/pagespeed/insights/?url=<?php echo $url ?>"> <i class="fas fa-tachometer-alt"></i> Pagespeed</a>
+	
+	<a class="btn btn-primary btn-xs" target="_blank" href="https://tools.pingdom.com/"> <i class="fas fa-tachometer-alt"></i> Pingdom</a>	
+	
+	<a class="btn btn-primary btn-xs" target="_blank" href="https://gtmetrix.com?url=<?php echo $url ?>"> <i class="fas fa-tachometer-alt"></i> GT Metrix</a>
+
+    <a class="btn btn-secondary btn-xs" target="_blank" href="https://viewdns.info/reverseip/?host=<?php echo cleanURL($url) ?>" data-toggle="tooltip" data-placement="bottom" title="ViewDNS can be used to list the number of websites sharing the same server with this domain"> <i class="fas fa-eye"></i> ViewDNS info</a>
+	
+	<a class="btn btn-info btn-xs" target="_blank" href="side-by-side.php?url=<?php echo $url ?>" data-toggle="tooltip" data-placement="bottom" title="Side-by-side visual comparation of Cached vs non-cached versions of a website"> <i class="fas fa-eye"></i> Side by Side</a>
+	
+	<a class="btn btn-info btn-xs" target="_blank" href="https://cpcss.wp-rocket.me/ui?=<?php echo $url ?>"> <i class="fas fa-code"></i> CPCSS UI Test</a>
+	
+    <a class="btn btn-info btn-xs" target="_blank" href="https://rocketcdn.me/admin/website/website/?q=<?php echo $url ?>"> <i class="fas fa-code"></i>Search in RocketCDN</a>
+
+	<a class="btn btn-warning btn-xs" target="_blank" href="license-validator.php?url=<?php echo $url ?>" data-toggle="tooltip" data-placement="bottom" title="This tool can be used to validate a license against WP Rocket API using a combination of URL email and API Key"> <i class="fas fa-key"></i> License Validation</a>
+	
+		<a class="btn btn-warning btn-xs" target="_blank" href="psi-test.php?url=<?php echo $url ?>"> <i class="fas fa-clock"></i> PSI Test tool</a>
 		
  </div>
 
