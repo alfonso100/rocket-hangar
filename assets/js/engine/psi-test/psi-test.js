@@ -86,8 +86,15 @@
 })();
 
 function done() {
+    const iframes = document.querySelectorAll('.psi-iframe');
+    iframes.forEach((iframe) => {
+        const src = iframe.getAttribute('data-src');
+        iframe.setAttribute('src', src);
+    });
     document.querySelector('#results-box').classList.remove('hidden');
     document.querySelector('.spinner-container').classList.add('hidden');
+    document.querySelector('.psi-iframes').classList.remove('hidden');
+    document.querySelector('.psi-iframes-message').classList.add('hidden');
 }
 /**
  * @param {any} id

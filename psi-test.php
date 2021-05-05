@@ -283,15 +283,17 @@ include('classes/loader.php');
 					</div>
 
 
+					<div class="row p-4 py-0 psi-iframes-message">
+						<h3>The Side by Side visual comparison will be here after the PSI API finishes...</h3>
+					</div>
 
-
-					<div class="row p-4 py-0">
+					<div class="row p-4 py-0 psi-iframes hidden">
 						<div class="col-6">
 
 							<h5>With WP Rocket: <a href="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>" target="_blank">Open report in a new tab</a></h5>
 
 							<div class="iframe-wrap">
-								<iframe id="iframe1" scrolling="yes" class="browser scaled-iframe" frameborder="0" src="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>"></iframe>
+								<iframe id="iframe1" scrolling="yes" class="browser scaled-iframe psi-iframe" frameborder="0" data-src="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>"></iframe>
 							</div>
 						</div>
 
@@ -299,7 +301,7 @@ include('classes/loader.php');
 							<h5>Not Cached: <a href="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>?nowprocket" target="_blank">Open report in a new tab</a></h5>
 
 							<div class="iframe-wrap">
-								<iframe id="iframe2" class="browser scaled-iframe" frameborder="0" src="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>?nowprocket"></iframe>
+								<iframe id="iframe2" class="browser scaled-iframe psi-iframe" frameborder="0" data-src="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>?nowprocket"></iframe>
 							</div>
 						</div>
 
