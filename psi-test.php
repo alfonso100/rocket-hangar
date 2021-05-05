@@ -180,7 +180,7 @@ include('classes/loader.php');
 				<div class="row px-4 py-0">
 					<div class="col-6">
 
-						<h2>PSI Reply Builder</h2>
+						<h2>PSI Test Tool</h2>
 
 						<h4 id="step-1">1 - Enter the website url and RUN REPORT</h4>
 
