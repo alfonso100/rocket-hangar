@@ -6,12 +6,21 @@
         const psiResult = await psiTool.run();
         // console.log(psiResult);
         const allFailed = psiTool.auditsToObject(psiResult.all_failed);
+        const allPassed = psiTool.auditsToObject(psiResult.passed);
         // console.log(allFailed);
         psi_database = psi_database.map((item) => {
+            item.class = '';
             if (allFailed[item.id]) {
                 item.failed = true;
+                if(allFailed[item.id]?.score >= PsiTool.needs_improvement_threshold) item.class = 'needs-improvement';
+                if(allFailed[item.id]?.score < PsiTool.needs_improvement_threshold) item.class = 'poor';
             } else {
                 item.failed = false;
+                if (allPassed[item.id]?.scoreDisplayMode === 'informative') {
+                    item.class = 'informative';
+                } else {
+                    item.class = 'passed';
+                }
             }
             return item;
         });
@@ -22,7 +31,7 @@
     const opportunitiesListElement = document.querySelector('#psi-opportunities-list');
     psi_database.forEach((element) => {
         let htmlElement = htmlToElement(`
-		<div class="form-check ${element.failed ? 'active' : ''}">
+		<div class="form-check ${element.failed ? 'active' : ''} ${element?.class}">
 		<input class="form-check-input psicheck" type="checkbox" value="${element.id}" id="${element.id}" name="psi[]" ${element.failed ? 'checked' : ''}>
 		<label class="form-check-label" for="${element.id}"> ${element.name}
 		</label>

@@ -89,14 +89,20 @@ include('classes/loader.php');
 			margin: 2px;
 			border: 2px solid #EAEAEA;
 			font-size: 0.9rem;
+
+			/* padding: 3px; */
+			/* background: #FFF; */
+			border-radius: 10px;
+			/* margin: 3px; */
+			border: 2px solid transparent;
 		}
 
 		.form-check.active {
 			padding: 3px;
 			background: #FFF;
-			border-radius: 10px;
+			/* border-radius: 10px; */
 			margin: 3px;
-			border: 2px solid #333;
+			/* border: 2px solid #333; */
 		}
 
 		.form-check label {
@@ -157,6 +163,18 @@ include('classes/loader.php');
 			box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.35);
 			height: 98%;
 			overflow: scroll;
+		}
+		.form-check.poor {
+			border-color: #ff4e42;
+		}
+		.form-check.passed {
+			border-color: #0cce6b;
+		}
+		.form-check.needs-improvement {
+			border-color: #ffa400;
+		}
+		.form-check.informative {
+			border-color: #bdbdbd;
 		}
 	</style>
 

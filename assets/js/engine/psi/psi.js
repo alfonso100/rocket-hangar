@@ -1,6 +1,9 @@
 // full-page-screenshot does not exist in auditRefs
 const PASS_THRESHOLD = 0.9;
+const NEEDS_IMPROVEMENT_THRESHOLD = 0.5;
 class PsiTool {
+    static pass_threshold = PASS_THRESHOLD;
+    static needs_improvement_threshold = NEEDS_IMPROVEMENT_THRESHOLD;
     _api_url = 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed';
     _api_key = 'AIzaSyAg8yVZHvk_-_TB-Cm7aoCFI7i8bK8ugMM'; // WP MEDIA API KEY (Production)
     _parameters = {
