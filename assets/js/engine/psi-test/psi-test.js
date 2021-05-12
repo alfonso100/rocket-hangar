@@ -1,16 +1,7 @@
 (async function () {
     const urlParams = new URLSearchParams(window.location.search);
     const psiUrl = urlParams.get('url');
-    const urlError = urlParams.get('urlError');
-    if (urlError === '1') {
-        alert('Please make sure to add http:// or https:// to the URL.');
-    }
-    // console.log(psiUrl);
     if (psiUrl) {
-        if (!validateUrl(psiUrl)) {
-            window.location.href = '/psi-test.php?urlError=1';
-            return false;
-        }
         const psiTool = new PsiTool(psiUrl);
         const psiResult = await psiTool.run();
         // console.log(psiResult);

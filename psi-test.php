@@ -185,7 +185,7 @@ include('classes/loader.php');
 						<h4 id="step-1">1 - Enter the website url and RUN REPORT</h4>
 
 						<form class="form-inline my-4 my-lg-0 w-100 ml-auto" method="get">
-							<input name="url" class="form-control w-75" type="search" placeholder="URL to test" aria-label="Search" value="<?php echo $url ?>">
+							<input name="url" class="form-control w-75" type="url" placeholder="URL to test" aria-label="Url" value="<?php echo $url ?>">
 							<button class="btn btn-dark" type="submit">RUN REPORT</button>
 
 						</form>
