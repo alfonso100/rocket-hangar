@@ -33,6 +33,8 @@
 	<a class="btn btn-warning btn-xs" target="_blank" href="license-validator.php?url=<?php echo $url ?>" data-toggle="tooltip" data-placement="bottom" title="This tool can be used to validate a license against WP Rocket API using a combination of URL email and API Key"> <i class="fas fa-key"></i> License Validation</a>
 	
 		<a class="btn btn-warning btn-xs" target="_blank" href="psi-test.php?url=<?php echo $url ?>"> <i class="fas fa-clock"></i> PSI Test tool</a>
+
+		<a class="btn btn-warning btn-xs" target="_blank" href="rucss-tests.php?url=<?php echo $url ?>"> <i class="fas fa-clock"></i> RUCSS Testing tool</a>
 		
  </div>
 
