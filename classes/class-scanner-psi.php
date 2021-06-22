@@ -14,20 +14,26 @@
 			$number_of_disabled = 0;
 
 			foreach($warnings_psi as $warning) :
-							
-				if(	stripos($html, $warning[0]) !== false  ) { 
+								
+				// explode cases with multiple warnings, this adds compatibility with 3.9 and previous versions
+				$warnings = explode('|||', $warning[0]);
+				
+				$flag = 0;
+				
+				foreach ($warnings as $current_warning) :							
+					if(	stripos($html, $current_warning) !== false ) { 
+						$flag ++;	
+					} 
 					
-					//$scan_output_enabled .= '<li><strong>'.$warning[1].'</strong><br>'.$warning[2].'. <a href="'.$warning[3].'">See doc</a></li>';
-					//$number_of_enabled ++;
-					
-				} else {
-					
+				endforeach;
+				
+				// after we looped the array of warnings, we output the warnings
+				if($flag == 0) {
 					$scan_output_disabled .= '<li><strong>'.$warning[1].'</strong><br>'.$warning[2].'.  <a href="'.$warning[3].'">See doc</a></li>';
 					$number_of_disabled ++;
 					
 				}
-
-				
+							
 			endforeach;
 			
 			$html_result = '<p><strong>Please activate the following options in WP Rocket:</strong></p>';
