@@ -4,6 +4,17 @@
     if (psiUrl) {
         const psiTool = new PsiTool(psiUrl);
         const psiResult = await psiTool.run();
+        // Printing the score to the HTML and adding the class
+        const scoreValueElement = $('.psi-score-value');
+        const scoreElement = $('.psi-score');
+        scoreValueElement.html(psiResult.performance_score * 100);
+        if (psiResult.performance_score >= PsiTool.pass_threshold ) {
+            scoreElement.addClass('passed');
+        } else if  (psiResult.performance_score >= PsiTool.needs_improvement_threshold ) {
+            scoreElement.addClass('needs-improvement');
+        } else {
+            scoreElement.addClass('poor');
+        }
         // console.log(psiResult);
         const allFailed = psiTool.auditsToObject(psiResult.all_failed);
         const allPassed = psiTool.auditsToObject(psiResult.passed);
@@ -75,8 +86,8 @@
         const report_box = document.querySelector("#report-box");
         // We execute the function that will copy to the clipboard and we pass the response and the element where the response will be copied temporary
         await copyWithStyle(response.trim(), report_box);
-        const copyMessage = document.querySelector('#copy-message');
-        showCopyMessage('The response was copied!', copyMessage);
+        const copyMessage = document.querySelector('#report-box');
+        showPopOver(copyMessage);
     });
 
 
@@ -85,8 +96,8 @@
         const response = $("#response-content-to-copy").html();
         // We execute the function that will copy to the clipboard and we pass the response
         await copyText(response.trim());
-        const copyMessage = document.querySelector('#copy-message');
-        showCopyMessage('The response was copied!', copyMessage);
+        const copyMessage = document.querySelector('#report-box');
+        showPopOver(copyMessage);
     });
 
     done();
@@ -190,6 +201,22 @@ async function showCopyMessage(message, element) {
             element.innerHTML = '';
         }, 1000)
     }, 3000);
+}
+/**
+ *
+ *
+ * @param {string} element
+ */
+async function showPopOver(element) {
+    if(typeof window.copyTimeOut !== 'undefined' && window.copyTimeOut !== null && typeof window.copyTimeOut === 'number') {
+        clearTimeout(window.copyTimeOut);
+        window.copyTimeOut = null;
+        $(element).popover('hide');
+    }
+    $(element).popover('show');
+    window.copyTimeOut = setTimeout(() => {
+        $(element).popover('hide');
+    }, 2000);
 }
 
 function htmlToElement(html) {

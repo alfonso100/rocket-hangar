@@ -164,6 +164,20 @@ include('classes/loader.php');
 			height: 98%;
 			overflow: scroll;
 		}
+		/* Score number styles */
+		.psi-score {
+			font-size: 1.1em;
+		}
+		.psi-score.poor {
+			color: #ff4e42;
+		}
+		.psi-score.passed {
+			color: #0cce6b;
+		}
+		.psi-score.needs-improvement {
+			color: #ffa400;
+		}
+		/* End Score number styles */
 		.form-check.poor {
 			border-color: #ff4e42;
 		}
@@ -226,12 +240,17 @@ include('classes/loader.php');
 							<h4 id="step-3">2 - PSI Response</h4>
 
 
-							<div class="report" id="report-box">
-								<!-- Adding the Copy button -->
-								<div class="div-copy-button">
-									<span class="copy-message" id="copy-message"></span>
-									<button type="button" class="btn btn-outline-secondary" id="copy-with-styles-button">Copy <i class="far fa-copy"></i></button>
-									<button type="button" class="btn btn-outline-secondary" id="copy-text-button">Copy (Help Scout) <i class="far fa-copy"></i></button>
+							<div class="report" id="report-box" data-container="body" data-toggle="popover" data-placement="top" data-content="The response was copied!">
+								<div class="col-12 row">
+									<div class="psi-score col-3">
+										Score: <span class="font-weight-bold psi-score-value">90%</span>
+									</div>
+									<!-- Adding the Copy button -->
+									<div class="div-copy-button col-9">
+										<!-- <span class="copy-message" id="copy-message"></span> -->
+										<button type="button" class="btn btn-outline-secondary" id="copy-with-styles-button">Copy <i class="far fa-copy"></i></button>
+										<button type="button" class="btn btn-outline-secondary" id="copy-text-button">Copy (Help Scout) <i class="far fa-copy"></i></button>
+									</div>
 								</div>
 								<div id="response-content-to-copy">
 									<p>Your site is definitely faster with WP Rocket. <br>Please see this side-by-side comparison of your performance reports, <a href="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>" target="_blank">cached</a> vs <a href="https://developers.google.com/speed/pagespeed/insights//?hl=en&url=<?php echo $url ?>?nowprocket" target="_blank">non-cached</a>: [INSERT SCREENSHOT LINK HERE]</p>
