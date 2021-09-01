@@ -240,7 +240,7 @@ include('classes/loader.php');
 							<h4 id="step-3">2 - PSI Response</h4>
 
 
-							<div class="report" id="report-box" data-container="body" data-toggle="popover" data-placement="top" data-content="The response was copied!">
+							<div class="report" id="report-box" data-container="body" data-toggle="popover" data-placement="top" trigger="manual" data-content="The response was copied!">
 								<div class="col-12 row">
 									<div class="psi-score col-3">
 										Score: <span class="font-weight-bold psi-score-value">90%</span>

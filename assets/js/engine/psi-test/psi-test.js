@@ -212,10 +212,12 @@ async function showPopOver(element) {
         clearTimeout(window.copyTimeOut);
         window.copyTimeOut = null;
         $(element).popover('hide');
+        $(element).popover('dispose');
     }
     $(element).popover('show');
     window.copyTimeOut = setTimeout(() => {
         $(element).popover('hide');
+        $(element).popover('dispose');
     }, 2000);
 }
 
