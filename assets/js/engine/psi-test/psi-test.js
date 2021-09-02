@@ -7,7 +7,7 @@
         // Printing the score to the HTML and adding the class
         const scoreValueElement = $('.psi-score-value');
         const scoreElement = $('.psi-score');
-        scoreValueElement.html(psiResult.performance_score * 100);
+        scoreValueElement.html(Math.round(psiResult.performance_score * 100));
         if (psiResult.performance_score >= PsiTool.pass_threshold ) {
             scoreElement.addClass('passed');
         } else if  (psiResult.performance_score >= PsiTool.needs_improvement_threshold ) {
