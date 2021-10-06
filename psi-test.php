@@ -8,11 +8,17 @@ file_put_contents('./file', $counter);
 // PSI Recommendations generator
 define('MAX_FILE_SIZE', 2000000); // Simple HTML parser has a low limit of 600000.
 
-if ($_GET['url']) :
+if ( $_GET['url'] ) :
 
 	$url          = $_GET['url'];
 	$url_nocache  = $url . '?nowprocket';
 
+endif;
+
+if( $_GET['checked'] == 'on' ) :
+	
+	$checked = 'checked="checked"';
+	
 endif;
 
 include('classes/loader.php');
@@ -213,13 +219,20 @@ include('classes/loader.php');
 					<div class="col-6">
 
 						<h2>PSI Test Tool</h2>
-
-						<h4 id="step-1">1 - Enter the website url and RUN REPORT</h4>
+	
+					<h4 id="step-1">1 - Enter the website url and RUN REPORT</h4>
 
 						<form class="form-inline my-4 my-lg-0 w-100 ml-auto" method="get">
-							<input name="url" class="form-control w-75" type="url" placeholder="URL to test" aria-label="Url" value="<?php if(isset($url)) echo $url ?>">
-							<button class="btn btn-dark" type="submit">RUN REPORT</button>
 
+
+						<div class="custom-control custom-switch">
+						  <input  name="checked" type="checkbox" class="custom-control-input" id="customSwitch1" <?=$checked ?>>
+						  <label class="custom-control-label" for="customSwitch1" ><em>I have verified the website is optimized by WP Rocket</em></label>
+						  </div>
+						  <br><br><br><br>
+						  <input name="url" class="form-control w-75" type="url" placeholder="URL to test" aria-label="Url" value="<?php if(isset($url)) echo $url ?>">
+							<button class="btn btn-dark" type="submit">RUN REPORT</button>
+			
 						</form>
 					</div>
 				</div>
