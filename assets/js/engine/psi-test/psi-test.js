@@ -43,7 +43,7 @@
     psi_database.forEach((element) => {
         let htmlElement = htmlToElement(`
 		<div class="form-check ${element.failed ? 'active' : ''} ${element?.class}">
-		<input class="form-check-input psicheck" type="checkbox" value="${element.id}" id="${element.id}" name="psi[]" ${element.failed ? 'checked' : ''}>
+		<input class="form-check-input psicheck" type="checkbox" value="${element.id}" id="${element.id}" name="psi[]" ${element.failed ? '' : ''}>
 		<label class="form-check-label" for="${element.id}"> ${element.name}
 		</label>
 	  	</div>
@@ -77,7 +77,7 @@
 
     // Copy response with Styles
     /*
-        The evet click is created for the copy button
+        The event click is created for the copy button
     */
     $("#copy-with-styles-button").on("click", async function () {
         // The HTML in the response block is extranted and saved in a constant
@@ -98,6 +98,12 @@
         await copyText(response.trim());
         const copyMessage = document.querySelector('#report-box');
         showPopOver(copyMessage);
+    });
+
+    
+    // Hide passed audits
+    $("#hide-greens").on("click", async function () {
+        $('.form-check.passed').toggle();        
     });
 
     done();
@@ -123,7 +129,7 @@ function addAnswer(id) {
     // The oppornunity HTML Element is created
     let opportunityElement = htmlToElement(psi_database.filter((element) => element.id == id)[0].content);
     // The oppornunity HTML Element is added to the DOM
-    responseListElement.appendChild(opportunityElement);
+    //responseListElement.appendChild(opportunityElement);
 }
 /**
  *

@@ -7,13 +7,7 @@ $warnings_psi = array(
 // array structure: [string-to-detect] [name of feature] [descripton] [reference url]
  	
 
-//Optimize CSS delivery
- array(
- 	'rocket-critical-css', 
- 	'Optimize CSS Delivery',  
- 	'The <em>Optimize CSS Delivery</em> option is very important, as it addresses the <a href="https://developers.google.com/web/tools/lighthouse/audits/blocking-resources" target="_blank">PageSpeed recommendation</a>: <em>Eliminate render-blocking resources</em>', 
- 	'https://docs.wp-rocket.me/article/1266-optimize-css-delivery'	
- 	),
+
 
 //Lazyload
  array(
@@ -36,18 +30,19 @@ $warnings_psi = array(
  array(
  	'rocket-delay-js-js-after|||type="rocketlazyloadscript"', 
  	'Delay JavaScript Execution',  
- 	'This option improves performance by delaying the loading of JavaScript files until there is a user interaction. Customize the list of delayed scripts to take full advantage of it', 
+ 	'This option improves performance by delaying the loading of all JavaScript files and inline scripts until there is a user interaction. It’s like LazyLoad, but for JavaScript files.', 
  	'https://docs.wp-rocket.me/article/1349-delay-javascript-execution'	
  	), 
 
+//Optimize CSS delivery
+ array(
+   'rocket-critical-css|||wpr-usedcss|||used.min.css', 
+   'Optimize CSS Delivery',  
+   'The <em>Optimize CSS Delivery</em> option is very important, as it addresses the <a href="https://developers.google.com/web/tools/lighthouse/audits/blocking-resources" target="_blank">PageSpeed recommendation</a>: <em>Eliminate render-blocking resources</em>. <a href="https://docs.wp-rocket.me/article/1529-remove-unused-css">Remove Unused CSS</a> is the recommended method of optimizing your CSS. If you have trouble with this option, try <a href="https://docs.wp-rocket.me/article/1266-load-css-asynchronously">Load CSS Asynchronously</a> instead.', 
+   'https://docs.wp-rocket.me/article/1529-remove-unused-css'	
+   ),
 
- //Remove Unused CSS
-  array(
-      'wpr-usedcss|||used.min.css', 
-      'Remove Unused CSS',  
-      'Enable this option to remove the Unused CSS and improve your performance by reducing unnecessary data transfers', 
-      'https://docs.wp-rocket.me/article/1529-remove-unused-css'	
-      ),  	
+
  
 		 
 );

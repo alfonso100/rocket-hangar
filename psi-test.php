@@ -287,9 +287,9 @@ include('classes/loader.php');
 
 						<div class="col-6">
 							<div class="follower">
-								<h4>3 - Add some opportunities and recommendations <button type="button" class="btn btn-outline-secondary" id="fix-button">float it <i class="fas fa-window-restore "></i></button></h4>
-								<small>From this list, add some of the <span style="font-weight: bold;"><b>Opportunities</b></span> from the Pagespeed report gave you for the <em>cached</em> version of the website.</small>
-
+								<h4>3 - Add some opportunities and recommendations <button type="button" class="btn btn-outline-secondary btn-sm" id="fix-button">float it <i class="fas fa-window-restore "></i></button></h4>
+								<small>From this list, add some of the <span style="font-weight: bold;"><b>Opportunities</b></span> from the Pagespeed report gave you for the <em>cached</em> version of the website.</small><br><br>
+<button type="button" class="btn btn-outline-secondary btn-sm" id="hide-greens">Toggle passed audits <i class="far fa-eye"></i></button>
 								<br><br>
 
 								<form id="psi-opportunities-list" method="post">
