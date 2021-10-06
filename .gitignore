@@ -3,3 +3,4 @@ file
 test.php
 assets/js/engine/.DS_Store
 !.*/
+psi-test-selfservice.php
