@@ -6,7 +6,7 @@ file_put_contents('./file', $counter);
 
 
 // PSI Recommendations generator
-define('MAX_FILE_SIZE', 2000000); // Simple HTML parser has a low limit of 600000
+define('MAX_FILE_SIZE', 2000000); // Simple HTML parser has a low limit of 600000.
 
 if ($_GET['url']) :
 
