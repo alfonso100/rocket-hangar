@@ -1,7 +1,7 @@
 (async function () {
     const urlParams = new URLSearchParams(window.location.search);
     const psiUrl = urlParams.get('url');
-
+    
     // I have verified the website is optimized by WP Rocket CHECKBOX
     const customSwitch1 = document.getElementById("customSwitch1");
     const submitButton = document.getElementById("submit-button");
@@ -19,7 +19,8 @@
         }
     })
     // End Checkbox
-
+    
+    
     if (psiUrl) {
         const psiTool = new PsiTool(psiUrl);
         const psiResult = await psiTool.run();
@@ -61,12 +62,12 @@
     const opportunitiesListElement = document.querySelector('#psi-opportunities-list');
     psi_database.forEach((element) => {
         let htmlElement = htmlToElement(`
-		<div class="form-check ${element.failed ? 'active' : ''} ${element?.class}">
-		<input class="form-check-input psicheck" type="checkbox" value="${element.id}" id="${element.id}" name="psi[]" ${element.failed ? '' : ''}>
-		<label class="form-check-label" for="${element.id}"> ${element.name}
-		</label>
-	  	</div>
-		`);
+        <div class="form-check ${element.failed ? 'active' : ''} ${element?.class}">
+        <input class="form-check-input psicheck" type="checkbox" value="${element.id}" id="${element.id}" name="psi[]" ${element.failed ? '' : ''}>
+        <label class="form-check-label" for="${element.id}"> ${element.name}
+        </label>
+          </div>
+        `);
         opportunitiesListElement.appendChild(htmlElement);
         if (element.failed) {
             addAnswer(element.id);
