@@ -1,6 +1,25 @@
 (async function () {
     const urlParams = new URLSearchParams(window.location.search);
     const psiUrl = urlParams.get('url');
+
+    // I have verified the website is optimized by WP Rocket CHECKBOX
+    const customSwitch1 = document.getElementById("customSwitch1");
+    const submitButton = document.getElementById("submit-button");
+
+    // @ts-ignore
+    if (customSwitch1.checked) {
+        submitButton.removeAttribute('disabled');
+    }
+    customSwitch1.addEventListener('change', ($event) => {
+        // @ts-ignore
+        if (customSwitch1.checked) {
+            submitButton.removeAttribute('disabled');
+        } else {
+            submitButton.setAttribute('disabled', '');
+        }
+    })
+    // End Checkbox
+
     if (psiUrl) {
         const psiTool = new PsiTool(psiUrl);
         const psiResult = await psiTool.run();

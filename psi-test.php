@@ -8,17 +8,19 @@ file_put_contents('./file', $counter);
 // PSI Recommendations generator
 define('MAX_FILE_SIZE', 2000000); // Simple HTML parser has a low limit of 600000.
 
-if ( $_GET['url'] ) :
+if ( isset($_GET['url']) ) :
 
 	$url          = $_GET['url'];
 	$url_nocache  = $url . '?nowprocket';
-
+else:
+	$url = '';
 endif;
 
-if( $_GET['checked'] == 'on' ) :
+if( isset($_GET['checked']) && $_GET['checked'] == 'on' ) :
 	
 	$checked = 'checked="checked"';
-	
+else:
+	$checked = '';
 endif;
 
 include('classes/loader.php');
@@ -230,8 +232,8 @@ include('classes/loader.php');
 						  <label class="custom-control-label" for="customSwitch1" ><em>I have verified the website is optimized by WP Rocket</em></label>
 						  </div>
 						  <br><br><br><br>
-						  <input name="url" class="form-control w-75" type="url" placeholder="URL to test" aria-label="Url" value="<?php if(isset($url)) echo $url ?>">
-							<button class="btn btn-dark" type="submit">RUN REPORT</button>
+						  <input name="url" class="form-control w-75" type="url" placeholder="URL to test" aria-label="Url" value="<?php echo $url ?>">
+							<button id="submit-button" class="btn btn-dark" type="submit" disabled>RUN REPORT</button>
 			
 						</form>
 					</div>
@@ -361,7 +363,7 @@ include('classes/loader.php');
 
 
 
-			<?php if ($urlXX) : ?>
+			<?php if (isset($urlXX)) : ?>
 				<!-- 3rd  STEP  -->
 				<div class="clearfix"></div>
 
