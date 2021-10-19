@@ -198,6 +198,10 @@ include('classes/loader.php');
 		.form-check.informative {
 			border-color: #bdbdbd;
 		}
+		
+		.form-check.passed {
+			display: none;
+		}
 	</style>
 
 
