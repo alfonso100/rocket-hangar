@@ -202,6 +202,13 @@ include('classes/loader.php');
 		.form-check.passed {
 			display: none;
 		}
+		
+		
+		/* hide some useless recommendations*/
+		
+		.uses-passive-event-listeners {
+			display: none !important;
+		}
 	</style>
 
 
@@ -272,9 +279,11 @@ include('classes/loader.php');
 									</div>
 								</div>
 								<div id="response-content-to-copy">
-									<p>Your site is definitely faster with WP Rocket. <br>Please see this side-by-side comparison of your performance reports, <a href="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>" target="_blank">cached</a> vs <a href="https://developers.google.com/speed/pagespeed/insights//?hl=en&url=<?php echo $url ?>?nowprocket" target="_blank">non-cached</a>: [INSERT SCREENSHOT LINK HERE]</p>
+									<p>Please see this side-by-side comparison of your performance reports, <a href="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>" target="_blank">cached</a> vs <a href="https://developers.google.com/speed/pagespeed/insights//?hl=en&url=<?php echo $url ?>?nowprocket" target="_blank">non-cached</a>: [INSERT SCREENSHOT LINK HERE]<br><br>
+									[KEEP THIS IF TRUE]<br>Your site is definitely faster with WP Rocket!<br>[/KEEP THIS IF TRUE]
+</p>
 
-									<p>I have tested your website with our diagnosis tool. This tool allows me to detect the most relevant WP Rocket features with a direct impact on your Pagespeed score.</p>
+									<p>As a next step, please <span style="font-weight: bold;"><b>activate</b></span> the following options in WP Rocket:</p>
 									<?php
 
 									//ROCKET PSI SCANNER	
@@ -292,14 +301,20 @@ include('classes/loader.php');
 
 
 									?>
+									<p>In addition to this, you can also:</p>
+									<ul id="response-psi-opportunities-list2"></ul>
+
+									
+									<p>The following pending optimizations are critical but unfortunately fall outside WP Rocket and you should work them on your own:</p>
+
+									<ul id="response-psi-opportunities-list"></ul>
 
 									<p>
 
-										We have covered most of the recommendations in <span style="font-weight: bold;"><b><a href="https://docs.wp-rocket.me/category/1378-pagespeed">our dedicated PageSpeed documentation</a>.</b></span> Below, I'm linking specific articles according to the results obtained in the PageSpeed test:
+										You can learn more about the recommendations in <span style="font-weight: bold;"><b><a href="https://docs.wp-rocket.me/category/1378-pagespeed">our dedicated PageSpeed documentation</a>.</b></span>
 
 									</p>
-									<ul id="response-psi-opportunities-list">
-									</ul>
+									<p>That should be a great start, but please let me know how it goes, or you have any other questions. :)</p>
 								</div>
 							</div>
 						</div>
@@ -333,8 +348,6 @@ include('classes/loader.php');
 					<div class="row px-4 py-0">
 						<div class="col-6">
 							<h4 id="step-2">4 - Pagespeed. Side by Side visual comparison test</h4>
-							<small>This is the current WP Rocket's benefit on your website. You can see the report for the cached version of your website on the left, and the non-cached version on the right. If you scroll down at the cached version, you can find the top <span style="font-weight: bold;"><b>Opportunities and Recommendations</b></span>, these are the ones you can use on <a href="#step-3">Step #3</a> to get add some customized performance recommendations.</small>
-
 						</div>
 					</div>
 

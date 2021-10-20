@@ -29,7 +29,7 @@
 				
 				// after we looped the array of warnings, we output the warnings
 				if($flag == 0) {
-					$scan_output_disabled .= '<li><strong>'.$warning[1].'</strong><br>'.$warning[2].'.  <a href="'.$warning[3].'">See doc</a></li>';
+					$scan_output_disabled .= '<li><strong><a href="'.$warning[3].'">'.$warning[1].'</a></strong> '.$warning[2].' '.$warning[4].'</li>';
 					$number_of_disabled ++;
 					
 				}

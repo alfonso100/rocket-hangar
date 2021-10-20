@@ -42,8 +42,7 @@ let psi_database = [
         name: 'Avoid an excessive DOM size',
         content: `
         <li class="dom-size">
-            <p><span style="font-weight: bold;"><b>Avoid an excessive DOM size</b></span><br>The HTML structure of your site should not have more than 1500 nodes. Check our article: <a href="https://docs.wp-rocket.me/article/1412-avoid-an-excessive-dom-size">https://docs.wp-rocket.me/article/1412-avoid-an-excessive-dom-size</a>.<br><br>
-				</p>
+            <p><a href="https://docs.wp-rocket.me/article/1412-avoid-an-excessive-dom-size">Avoid an excessive DOM size</a><br><br></p>
         </li>
         `,
     },
