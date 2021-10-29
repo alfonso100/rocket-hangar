@@ -36,7 +36,6 @@
 							
 			endforeach;
 			
-			$html_result = '<p><strong>Please activate the following options in WP Rocket:</strong></p>';
 			if($number_of_disabled > 0 ) {
 				$html_result .= '<ol>'.$scan_output_disabled.'</ol>';
 			} else {

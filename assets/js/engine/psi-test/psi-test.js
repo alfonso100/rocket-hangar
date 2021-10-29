@@ -75,16 +75,29 @@
     });
     // Adding the event listeners to every checkbox
     let check;
-    const responseListElement = document.querySelector('#response-psi-opportunities-list');
+    
+
+    let responseListElement = document.querySelector('#response-psi-opportunities-list');
     $(".psicheck").on("click", function () {
         check = $(this).is(":checked");
         let id = $(this).val();
+        
+        // classifying the type of response
+        let responseLocationHint = psi_database.filter((element) => element.id == id)[0].destination;
+            if( responseLocationHint == 'can-advise' ) {
+                responseListElement = document.querySelector('#response-psi-opportunities-list-can-advise');
+            } else {
+                responseListElement = document.querySelector('#response-psi-opportunities-list');
+            }
+        
+        
         if (check) {
             // The oppornunity HTML Element is created
             let opportunityElement = htmlToElement(psi_database.filter((element) => element.id == id)[0].content);
             $(this).parent('div').addClass('active');
             // The oppornunity HTML Element is added to the DOM
             responseListElement.appendChild(opportunityElement);
+            
         } else {
             // The oppornunity HTML Element is selected in the DOM
             let opportunityElement = document.querySelector('.' + $(this).val());
@@ -93,6 +106,10 @@
             responseListElement.removeChild(opportunityElement);
 
         }
+        
+        var numberOfElements = document.getElementById("#response-psi-opportunities-list-can-advise").childElementCount;
+        alert(numberOfElements);
+
     });
 
     // Copy response with Styles

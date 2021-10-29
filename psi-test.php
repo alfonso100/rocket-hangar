@@ -231,7 +231,7 @@ include('classes/loader.php');
 				<div class="row px-4 py-0">
 					<div class="col-6">
 
-						<h2>PSI Test Tool</h2>
+						<h2>PSI Test Tool - V2</h2>
 	
 					<h4 id="step-1">1 - Enter the website url and RUN REPORT</h4>
 
@@ -283,7 +283,7 @@ include('classes/loader.php');
 									[KEEP THIS IF TRUE]<br>Your site is definitely faster with WP Rocket!<br>[/KEEP THIS IF TRUE]
 </p>
 
-									<p>As a next step, please <span style="font-weight: bold;"><b>activate</b></span> the following options in WP Rocket:</p>
+									<p><span style="font-weight: bold;"><b>As the first step, please activate</b></span> the following options in WP Rocket:</p>
 									<?php
 
 									//ROCKET PSI SCANNER	
@@ -301,20 +301,19 @@ include('classes/loader.php');
 
 
 									?>
-									<p>In addition to this, you can also:</p>
-									<ul id="response-psi-opportunities-list2"></ul>
+									<p class="out-of-scope"><br><br><span style="font-weight: bold;"><b>Some extra tips</b></span> to improve your performance event further:</p>
+									<ul id="response-psi-opportunities-list-can-advise"></ul>
 
 									
-									<p>The following pending optimizations are critical but unfortunately fall outside WP Rocket and you should work them on your own:</p>
-
+									<p class="out-of-scope"><br><br><span style="font-weight: bold;"><b>Beyond WP Rocket:</b></span> there are some important optimizations pending, but we can't fix these for you. You should work them on your own:</p>
 									<ul id="response-psi-opportunities-list"></ul>
 
-									<p>
+									<p><br><br>
 
 										You can learn more about the recommendations in <span style="font-weight: bold;"><b><a href="https://docs.wp-rocket.me/category/1378-pagespeed">our dedicated PageSpeed documentation</a>.</b></span>
 
 									</p>
-									<p>That should be a great start, but please let me know how it goes, or you have any other questions. :)</p>
+									<p>That should be a great start. Please let me know how it goes, and write back if you have any other questions. :)</p>
 								</div>
 							</div>
 						</div>
@@ -322,7 +321,7 @@ include('classes/loader.php');
 						<div class="col-6">
 							<div class="follower">
 								<h4>3 - Add some opportunities and recommendations <button type="button" class="btn btn-outline-secondary btn-sm" id="fix-button">float it <i class="fas fa-window-restore "></i></button></h4>
-								<small>From this list, add some of the <span style="font-weight: bold;"><b>Opportunities</b></span> from the Pagespeed report gave you for the <em>cached</em> version of the website.</small><br><br>
+								<small>From this list, add 3 or 4 <span style="font-weight: bold;"><b>Opportunities</b></span> from the cached version Pagespeed report.<br><strong>Important:</strong> If there are still any WPR options to activate, some opportunities will be automatically disabled to avoid sending duplicated recommendations.</small><br><br>
 <button type="button" class="btn btn-outline-secondary btn-sm" id="hide-greens">Toggle passed audits <i class="far fa-eye"></i></button>
 								<br><br>
 
@@ -378,84 +377,7 @@ include('classes/loader.php');
 				</div>
 			<?php endif; ?>
 
-
-
-			<?php if (isset($urlXX)) : ?>
-				<!-- 3rd  STEP  -->
-				<div class="clearfix"></div>
-
-				<div class="box">
-					<div class="row px-4 py-0">
-						<div class="col-6">
-							<h4 id="step-3">3 - Pagespeed recommendations</h4>
-							<small>From this list, check the <span style="font-weight: bold;"><b>Opportunities</b></span> your Pagespeed report gave you for the cached version of your website.<br>When you are ready click the "<span style="font-weight: bold;"><b>Get performance recommendations</b></span>" button</small>
-
-							<br><br>
-							<form method="post">
-
-								<?php
-								$psi_opportunities = array();
-								$psi_opportunities[] = 'Minify JavaScript';
-								$psi_opportunities[] = 'Minify CSS';
-								$psi_opportunities[] = 'Properly size images';
-								$psi_opportunities[] = 'Preload key requests';
-								$psi_opportunities[] = 'Remove unused JavaScript';
-								$psi_opportunities[] = 'Remove unused CSS';
-								$psi_opportunities[] = 'Serve images in next-gen formats';
-								$psi_opportunities[] = 'Avoid serving legacy JavaScript to modern browsers';
-
-
-								$psi_diagnostics = array();
-								$psi_diagnostics[] = 'Does not use passive listeners to improve scrolling performance';
-								$psi_diagnostics[] = 'Ensure text remains visible during webfont load';
-								$psi_diagnostics[] = 'Reduce the impact of third-party code';
-								$psi_diagnostics[] = 'Reduce JavaScript execution time ';
-								$psi_diagnostics[] = 'Reduce JavaScript execution time ';
-								$psi_diagnostics[] = 'Reduce JavaScript execution time ';
-								$psi_diagnostics[] = 'Reduce JavaScript execution time ';
-
-
-								?>
-
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="remove-unused-javaScript" id="remove-unused-javaScript">
-									<label class="form-check-label" for="remove-unused-javaScript"> Remove unused JavaScript
-									</label>
-								</div>
-
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="remove-unused-css" id="remove-unused-css">
-									<label class="form-check-label" for="remove-unused-css"> Remove unused CSS
-									</label>
-								</div>
-
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="minify-javaScript" id="minify-javaScript">
-									<label class="form-check-label" for="minify-javaScript">Minify JavaScript
-									</label>
-								</div>
-
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="minify-javaScript" id="minify-javaScript">
-									<label class="form-check-label" for="minify-javaScript">... </label>
-								</div>
-								<br>
-								<button type="submit" class="btn btn-primary">Get performance recommendations &rsaquo;</button>
-							</form>
-
-						</div>
-					</div>
-				</div>
-
-
-			<?php endif; ?>
-
-
-			<!-- <script src="assets/js/psi-database.js"></script>
-			<script src="assets/js/engine/psi/psi.js"></script>
-			<script src="assets/js/engine/psi-test/psi-test.js"></script>
-			<script src="assets/js/scripts.js"></script> -->
-			<?php
+		<?php
 			$additionalScripts = [
 				'assets/js/psi-database.js',
 				'assets/js/engine/psi/psi.js',
