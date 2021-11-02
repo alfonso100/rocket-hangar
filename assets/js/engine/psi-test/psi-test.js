@@ -62,7 +62,7 @@
     const opportunitiesListElement = document.querySelector('#psi-opportunities-list');
     psi_database.forEach((element) => {
         let htmlElement = htmlToElement(`
-        <div class="form-check ${element.failed ? 'active' : ''} ${element?.class} ${element.id}">
+        <div class="form-check ${element.failed ? 'active' : ''} ${element?.class} ${element.id} ${element.destination}">
         <input class="form-check-input psicheck" type="checkbox" value="${element.id}" id="${element.id}" name="psi[]" ${element.failed ? '' : ''}>
         <label class="form-check-label" for="${element.id}"> ${element.name}
         </label>
@@ -107,8 +107,7 @@
 
         }
         
-        var numberOfElements = document.getElementById("#response-psi-opportunities-list-can-advise").childElementCount;
-        alert(numberOfElements);
+
 
     });
 

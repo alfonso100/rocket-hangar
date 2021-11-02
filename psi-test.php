@@ -123,6 +123,26 @@ include('classes/loader.php');
 			margin-left: 0;
 		}
 
+		.form-check.out-of-scope {
+			color: #C00;
+		}
+
+		.form-check.can-advise {
+			color: #007bff;
+		}
+		
+		.hint {
+			font-style: italic;
+		}
+		
+		.hint.out-of-scope {
+			color: #C00;
+		}
+
+		.hint.can-advise {
+			color: #007bff;
+		}
+		
 		.hidden {
 			display: none
 		}
@@ -301,11 +321,11 @@ include('classes/loader.php');
 
 
 									?>
-									<p class="out-of-scope"><br><br><span style="font-weight: bold;"><b>Some extra tips</b></span> to improve your performance event further:</p>
+									<p class="out-of-scope"><br>--------<br><span style="font-weight: bold;"><b>Some extra tips</b></span> to improve your performance event further:</p>
 									<ul id="response-psi-opportunities-list-can-advise"></ul>
 
 									
-									<p class="out-of-scope"><br><br><span style="font-weight: bold;"><b>Beyond WP Rocket:</b></span> there are some important optimizations pending, but we can't fix these for you. You should work them on your own:</p>
+									<p class="out-of-scope"><br>--------<br><span style="font-weight: bold;"><b>Beyond WP Rocket:</b></span> there are some important optimizations pending, but we can't fix these for you. You should work them on your own:</p>
 									<ul id="response-psi-opportunities-list"></ul>
 
 									<p><br><br>
@@ -322,7 +342,7 @@ include('classes/loader.php');
 							<div class="follower">
 								<h4>3 - Add some opportunities and recommendations <button type="button" class="btn btn-outline-secondary btn-sm" id="fix-button">float it <i class="fas fa-window-restore "></i></button></h4>
 								<small>From this list, add 3 or 4 <span style="font-weight: bold;"><b>Opportunities</b></span> from the cached version Pagespeed report.<br><strong>Important:</strong> If there are still any WPR options to activate, some opportunities will be automatically disabled to avoid sending duplicated recommendations.</small><br><br>
-<button type="button" class="btn btn-outline-secondary btn-sm" id="hide-greens">Toggle passed audits <i class="far fa-eye"></i></button>
+<button type="button" class="btn btn-outline-secondary btn-sm" id="hide-greens">Toggle passed audits <i class="far fa-eye"></i></button> <span class="hint can-advise">Can provide tips</span> - <span class="hint out-of-scope">Out of scope</span>
 								<br><br>
 
 								<form id="psi-opportunities-list" method="post">
