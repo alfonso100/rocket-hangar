@@ -321,7 +321,7 @@ include('classes/loader.php');
 
 
 									?>
-									<p class="out-of-scope"><br>--------<br><span style="font-weight: bold;"><b>Some extra tips</b></span> to improve your performance event further:</p>
+									<p class="out-of-scope"><br>--------<br><span style="font-weight: bold;"><b>Some extra tips</b></span> to improve your performance even further:</p>
 									<ul id="response-psi-opportunities-list-can-advise"></ul>
 
 									
