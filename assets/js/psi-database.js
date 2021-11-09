@@ -281,6 +281,7 @@ let psi_database = [
         destination: 'out-of-scope',
 
     },
+    /*
     {
         id: 'resource-summary',
         name: 'Keep request counts low and transfer sizes small',
@@ -291,7 +292,7 @@ let psi_database = [
         </li>`,
         destination: 'can-advise',
 
-    },
+    },*/
     {
         id: 'redirects',
         name: 'Avoid Multiple Page Redirects',
