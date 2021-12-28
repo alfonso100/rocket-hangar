@@ -4,7 +4,8 @@ const NEEDS_IMPROVEMENT_THRESHOLD = 0.5;
 class PsiTool {
     static pass_threshold = PASS_THRESHOLD;
     static needs_improvement_threshold = NEEDS_IMPROVEMENT_THRESHOLD;
-    _api_url = 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed';
+    // _api_url = 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed'; //Old Endpoint
+    _api_url = 'https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed';
     _api_key = 'AIzaSyAg8yVZHvk_-_TB-Cm7aoCFI7i8bK8ugMM'; // WP MEDIA API KEY (Production)
     _parameters = {
         locale: 'en_US',
@@ -27,14 +28,10 @@ class PsiTool {
         let audits = Object.values(json.lighthouseResult.audits);
         let auditRefs = this.auditRefsToObject(json.lighthouseResult.categories.performance.auditRefs);
         let mergeAudits = this.mergeAudits(audits, auditRefs);
-        let opportunities = this.getOpportunities(audits);
-        let diagnostics = this.getDiagnostics(audits);
         let finalResult = {
             performance_score: json.lighthouseResult.categories.performance.score,
-            opportunities,
-            diagnostics,
             passed: this.getPassed(audits),
-            all_failed: [...opportunities, ...diagnostics],
+            all_failed: this.getAllFailed(audits)
         };
         return finalResult;
     }
@@ -81,18 +78,10 @@ class PsiTool {
     /**
      * @param {any} audits
      */
-    getOpportunities(audits) {
-        let opportunityAudits = audits
-            .filter((/** @type {any} */ audit) => audit?.auditRef?.group === 'load-opportunities' && !PsiTool.showAsPassed(audit));
-        return opportunityAudits;
-    }
-    /**
-     * @param {any} audits
-     */
-    getDiagnostics(audits) {
-        let diagnosticAudits = audits
-            .filter((/** @type {any} */ audit) => audit?.auditRef?.group === 'diagnostics' && !PsiTool.showAsPassed(audit));
-        return diagnosticAudits;
+    getAllFailed(audits) {
+        let failedAudits = audits
+        .filter((/** @type {any} */ audit) => !PsiTool.showAsPassed(audit));
+        return failedAudits;
     }
     /**
      * @param {any} audits
@@ -100,8 +89,7 @@ class PsiTool {
     getPassed(audits) {
         // Passed audits
         const passedAudits = audits
-            .filter((/** @type {any} */ audit) => (audit?.auditRef?.group === 'load-opportunities' || audit?.auditRef?.group === 'diagnostics') &&
-                PsiTool.showAsPassed(audit));
+            .filter((/** @type {any} */ audit) => PsiTool.showAsPassed(audit));
         return passedAudits;
     }
     /**
