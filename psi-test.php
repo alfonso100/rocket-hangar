@@ -127,9 +127,7 @@ include('classes/loader.php');
 			color: #C00;
 		}
 
-		.form-check.can-advise {
-			color: #007bff;
-		}
+
 		
 		.hint {
 			font-style: italic;
@@ -341,7 +339,7 @@ include('classes/loader.php');
 							<div class="follower">
 								<h4>3 - Add some opportunities and recommendations <button type="button" class="btn btn-outline-secondary btn-sm" id="fix-button">float it <i class="fas fa-window-restore "></i></button></h4>
 								<small>From this list, add 3 or 4 <span style="font-weight: bold;"><b>Opportunities</b></span> from the cached version Pagespeed report.<br><strong>Important:</strong> If there are still any WPR options to activate, some opportunities will be automatically disabled to avoid sending duplicated recommendations.</small><br><br>
-<button type="button" class="btn btn-outline-secondary btn-sm" id="hide-greens">Toggle passed audits <i class="far fa-eye"></i></button> <span class="hint can-advise">Can provide tips</span> - <span class="hint out-of-scope">Out of scope</span>
+<button type="button" class="btn btn-outline-secondary btn-sm" id="hide-greens">Toggle passed audits <i class="far fa-eye"></i></button> <span class="hint out-of-scope">Out of scope</span>
 								<br><br>
 
 								<form id="psi-opportunities-list" method="post">
@@ -381,17 +379,17 @@ include('classes/loader.php');
 							<thead class="thead-light">
 								<tr>
 								  <th scope="col">Metric</th>
-								  <th scope="col" colspan="2"><a href="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>" target="_blank">With WP Rocket</a></th>
-								  <th scope="col" colspan="2"><a href="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>?nowprocket" target="_blank">Not Cached</a></th>
+								  <th scope="col" colspan="2"><a href="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>" target="_blank">Mobile</a></th>
+								  <th scope="col" colspan="2"><a href="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>?nowprocket" target="_blank">Desktop</a></th>
 								  <th scope="col">Improvement</th>
 								</tr>
 								
 								<tr>
 									 <th scope="col"></th>
-									 <th scope="col"><i class="fas fa-mobile-alt "></i></th>
-									  <th scope="col"><i class="fas fa-desktop"></i></th>
-										<th scope="col"><i class="fas fa-mobile-alt"></i></th>
-									<th scope="col"><i class="fas fa-desktop"></i></th>									 
+									 <th scope="col"><i class="fas fa-mobile-alt "></i> WP Rocket</th>
+									  <th scope="col"><i class="fas fa-mobile-alt"></i> Not Cached</th>
+										<th scope="col"><i class="fas fa-desktop"></i>  WP Rocket</th>
+									<th scope="col"><i class="fas fa-desktop"></i> Not Cached</th>									 
 										<th scope="col"></th>
 								</tr>
 									

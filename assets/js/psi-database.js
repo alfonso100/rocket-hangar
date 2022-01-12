@@ -202,7 +202,7 @@ let psi_database = [
         name: 'Reduce Initial Server Response Time',
         content: `
         <li class="server-response-time can-advise">
-            <p><span style="font-weight: bold;"><b>Reduce Initial Server Response Time</b></span><br>Server response time (also known as Time To First Byte) measures how long it takes the first byte of HTML to get from your server to your visitor’s browser. Please read: <a href="https://docs.wp-rocket.me/article/1408-reduce-initial-server-response-time">https://docs.wp-rocket.me/article/1408-reduce-initial-server-response-time</a><br>[IF PAGE IS CACHED MOVE TO the OUT OF SCOPE]<br>
+            <p><span style="font-weight: bold;"><b>Reduce Initial Server Response Time</b></span><br>Server response time (also known as Time To First Byte) measures how long it takes the first byte of HTML to get from your server to your visitor’s browser. Please read: <a href="https://docs.wp-rocket.me/article/1408-reduce-initial-server-response-time">https://docs.wp-rocket.me/article/1408-reduce-initial-server-response-time</a><br>[IF PAGE IS CACHED, AND CACHE IS NOT REGENERATED ON EVERY PAGE LOAD, MOVE TO the OUT OF SCOPE]<br>
             </p>
         </li>`,
         destination: 'can-advise',
