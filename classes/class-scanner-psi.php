@@ -37,9 +37,10 @@
 			endforeach;
 			
 			if($number_of_disabled > 0 ) {
-				$html_result .= '<ol>'.$scan_output_disabled.'</ol>';
+				$html_result .= '									<p><span style="font-weight: bold;"><b>As the first step, please activate</b></span> the following options in WP Rocket:</p>
+<ol>'.$scan_output_disabled.'</ol>';
 			} else {
-				$html_result .= '<p>All good, nothing else to enable!</p>';				
+				$html_result .= '<p>I can see the most important options in WP Rocket are enabled on your website!</p>';				
 			}
 			//$html_result .= '<p><strong>These options are already enabled and making your site faster:</strong></p>';
 			if($number_of_enabled > 0 ) {

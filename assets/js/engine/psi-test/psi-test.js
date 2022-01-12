@@ -62,7 +62,7 @@
     const opportunitiesListElement = document.querySelector('#psi-opportunities-list');
     psi_database.forEach((element) => {
         let htmlElement = htmlToElement(`
-        <div class="form-check ${element.failed ? 'active' : ''} ${element?.class}">
+        <div class="form-check ${element.failed ? 'active' : ''} ${element?.class} ${element.id}">
         <input class="form-check-input psicheck" type="checkbox" value="${element.id}" id="${element.id}" name="psi[]" ${element.failed ? '' : ''}>
         <label class="form-check-label" for="${element.id}"> ${element.name}
         </label>
@@ -75,16 +75,29 @@
     });
     // Adding the event listeners to every checkbox
     let check;
-    const responseListElement = document.querySelector('#response-psi-opportunities-list');
+    
+
+    let responseListElement = document.querySelector('#response-psi-opportunities-list');
     $(".psicheck").on("click", function () {
         check = $(this).is(":checked");
         let id = $(this).val();
+        
+        // classifying the type of response
+        let responseLocationHint = psi_database.filter((element) => element.id == id)[0].destination;
+            if( responseLocationHint == 'can-advise' ) {
+                responseListElement = document.querySelector('#response-psi-opportunities-list-can-advise');
+            } else {
+                responseListElement = document.querySelector('#response-psi-opportunities-list');
+            }
+        
+        
         if (check) {
             // The oppornunity HTML Element is created
             let opportunityElement = htmlToElement(psi_database.filter((element) => element.id == id)[0].content);
             $(this).parent('div').addClass('active');
             // The oppornunity HTML Element is added to the DOM
             responseListElement.appendChild(opportunityElement);
+            
         } else {
             // The oppornunity HTML Element is selected in the DOM
             let opportunityElement = document.querySelector('.' + $(this).val());
@@ -93,6 +106,9 @@
             responseListElement.removeChild(opportunityElement);
 
         }
+        
+       
+
     });
 
     // Copy response with Styles
@@ -131,15 +147,15 @@
 })();
 
 function done() {
-    // const iframes = document.querySelectorAll('.psi-iframe');
-    // iframes.forEach((iframe) => {
-    //     const src = iframe.getAttribute('data-src');
-    //     iframe.setAttribute('src', src);
-    // });
+    const iframes = document.querySelectorAll('.psi-iframe');
+    iframes.forEach((iframe) => {
+        const src = iframe.getAttribute('data-src');
+        iframe.setAttribute('src', src);
+    });
     document.querySelector('#results-box').classList.remove('hidden');
     document.querySelector('.spinner-container').classList.add('hidden');
-    // document.querySelector('.psi-iframes').classList.remove('hidden');
-    // document.querySelector('.psi-iframes-message').classList.add('hidden');
+    document.querySelector('.psi-iframes').classList.remove('hidden');
+    document.querySelector('.psi-iframes-message').classList.add('hidden');
 }
 /**
  * @param {any} id

@@ -303,7 +303,6 @@ include('classes/loader.php');
 									[KEEP THIS IF TRUE]<br>Your site is definitely faster with WP Rocket!<br>[/KEEP THIS IF TRUE]
 </p>
 
-									<p><span style="font-weight: bold;"><b>As the first step, please activate</b></span> the following options in WP Rocket:</p>
 									<?php
 
 									//ROCKET PSI SCANNER	
@@ -366,31 +365,102 @@ include('classes/loader.php');
 				<div class="box">
 					<div class="row px-4 py-0">
 						<div class="col-6">
-							<h4 id="step-2">4 - Pagespeed. Side by Side visual comparison test</h4>
+							<h4 id="step-2">4 - Pagespeed. Results table comparison [work in progress]</h4>
 						</div>
 					</div>
 
 
 					<div class="row p-4 py-0 psi-iframes-message">
-						<h3>The Side by Side visual comparison will be here after the PSI API finishes...</h3>
+						<!--h3>The results table will be here after the PSI API finishes...</h3-->
 					</div>
 
-					<div class="row p-4 py-0 psi-iframes hidden">
-						<div class="col-6">
+					<div class="row p-4 py-0 psi-iframes hiddenx">
+						<div class="col-8">
 
-							<h5>With WP Rocket: <a href="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>" target="_blank">Open report in a new tab</a></h5>
-
-							<div class="iframe-wrap">
-								<iframe id="iframe1" scrolling="yes" class="browser scaled-iframe psi-iframe" frameborder="0" data-src="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>"></iframe>
-							</div>
-						</div>
-
-						<div class="col-6">
-							<h5>Not Cached: <a href="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>?nowprocket" target="_blank">Open report in a new tab</a></h5>
-
-							<div class="iframe-wrap">
-								<iframe id="iframe2" class="browser scaled-iframe psi-iframe" frameborder="0" data-src="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>?nowprocket"></iframe>
-							</div>
+						<table class="table table-bordered" style="background-color: #FFF">
+							<thead class="thead-light">
+								<tr>
+								  <th scope="col">Metric</th>
+								  <th scope="col" colspan="2"><a href="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>" target="_blank">With WP Rocket</a></th>
+								  <th scope="col" colspan="2"><a href="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>?nowprocket" target="_blank">Not Cached</a></th>
+								  <th scope="col">Improvement</th>
+								</tr>
+								
+								<tr>
+									 <th scope="col"></th>
+									 <th scope="col"><i class="fas fa-mobile-alt "></i></th>
+									  <th scope="col"><i class="fas fa-desktop"></i></th>
+										<th scope="col"><i class="fas fa-mobile-alt"></i></th>
+									<th scope="col"><i class="fas fa-desktop"></i></th>									 
+										<th scope="col"></th>
+								</tr>
+									
+									
+							  </thead>
+							  <tbody>
+								  <tr>
+									<th scope="row">Performance</th>
+									<td class="wpr-result-preformance"><span class="psi-score-value"></span></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								  </tr>
+								<tr>
+								<th scope="row">First Contentful Paint</th>
+								<td><span class="first-Contentful-paint"></span></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+							  </tr>
+							  <tr>
+								  <th scope="row">Speed Index</th>
+								  <td><span class="speed-index"></span></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+								</tr>
+							<tr>
+								  <th scope="row">Largest Contentful Paint</th>
+								  <td><span class="speed-index"></span></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+								</tr>
+							<tr>
+								  <th scope="row">Time to Interactive</th>
+								  <td><span class="speed-index"></span></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+								</tr>	
+								<tr>
+									  <th scope="row">Total Blocking Time</th>
+									  <td><span class="speed-index"></span></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+									</tr>				  
+							<tr>
+								  <th scope="row">Cumulative Layout Shift</th>
+								  <td><span class="speed-index"></span></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+								</tr>					    							  
+							
+							<tbody>
+							
+							
+						</table>
+						
+							
 						</div>
 
 					</div>
