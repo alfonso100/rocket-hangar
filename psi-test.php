@@ -297,6 +297,9 @@ include('classes/loader.php');
 									</div>
 								</div>
 								<div id="response-content-to-copy">
+									<p>​I have tested <?php echo $url ?> with our diagnosis tool.</p>
+									<p>This tool allows me to detect the most relevant WP Rocket features with a direct impact on your Pagespeed score.</p>
+
 									<p>Please see this side-by-side comparison of your performance reports, <a href="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>" target="_blank">cached</a> vs <a href="https://developers.google.com/speed/pagespeed/insights//?hl=en&url=<?php echo $url ?>?nowprocket" target="_blank">non-cached</a>: [INSERT SCREENSHOT LINK HERE]<br><br>
 									[KEEP THIS IF TRUE]<br>Your site is definitely faster with WP Rocket!<br>[/KEEP THIS IF TRUE]
 </p>
