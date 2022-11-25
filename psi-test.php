@@ -227,6 +227,9 @@ include('classes/loader.php');
 		.uses-passive-event-listeners {
 			display: none !important;
 		}
+		.grid-item {
+    width: 100% !important;
+}
 	</style>
 
 
@@ -338,7 +341,7 @@ include('classes/loader.php');
 							</div>
 						</div>
 
-						<div class="col-6">
+						<div class="col-2">
 							<div class="follower">
 								<h4>3 - Add some opportunities and recommendations <button type="button" class="btn btn-outline-secondary btn-sm" id="fix-button">float it <i class="fas fa-window-restore "></i></button></h4>
 								<small>From this list, add 3 or 4 <span style="font-weight: bold;"><b>Opportunities</b></span> from the cached version Pagespeed report.<br><strong>Important:</strong> If there are still any WPR options to activate, some opportunities will be automatically disabled to avoid sending duplicated recommendations.</small><br><br>
@@ -354,6 +357,15 @@ include('classes/loader.php');
 							</div>
 
 						</div>
+						<div class="col-4">
+							<div class="indicators">
+						<h4>4 - Indicators <button type="button" class="btn btn-outline-secondary btn-sm" id="fix-button-indicators">float it <i class="fas fa-window-restore "></i></button></h4>
+						<?php include('indicators.php');?>
+						</div>				
+
+
+						</div>
+
 					</div>
 				</div>
 
@@ -366,7 +378,7 @@ include('classes/loader.php');
 				<div class="box">
 					<div class="row px-4 py-0">
 						<div class="col-6">
-							<h4 id="step-2">4 - Pagespeed. Results table comparison [work in progress]</h4>
+							<h4 id="step-2">5 - Pagespeed. Results table comparison [work in progress]</h4>
 						</div>
 					</div>
 

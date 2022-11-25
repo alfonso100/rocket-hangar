@@ -22,6 +22,10 @@ $(document).ready(function () {
 		$('.follower').toggleClass('fixed');
 		//$(this).removeClass('btn-outline-dark').addClass('btn-primary');
 	});
+	$('#fix-button-indicators').on('click', function () {
+		$('.indicators').toggleClass('fixed');
+		//$(this).removeClass('btn-outline-dark').addClass('btn-primary');
+	});
 	
 	// init Isotope
 	var $grid = $('.grid').isotope({
