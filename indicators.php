@@ -33,6 +33,59 @@ if ($url) :
   ///////////////////////
 
 
+   // wprocket - enabled options
+   $widget = new widget;
+   $rocket = new Rocket( $site_html, $url );
+   $widget_body = '';
+   if( $rocket->is_wpr_installed ){
+     $features_enabled = $rocket->enabled_features;
+       
+       asort($features_enabled);
+       $widget_body = '<h5><span class="badge badge-success">WP Rocket is enabled!</span></h5>';
+ 
+     foreach( $features_enabled as $feature ){
+       $widget_body .= '<i class="far fa-check-square"></i> ' . $feature . '<br>';
+     }
+ 
+     // FILE DETECTIONS
+     $widget_body .= '<br><h5><span class="badge badge-primary">FILES</h5>';
+     
+     $file_exists = new files(); 
+     $widget_body .= '<table class="table table-striped table-sm">';
+     
+     // contributors file
+     // $widget_body .= '<tr><td><trong>Contributors.txt</strong></td><td>'. $file_exists->checkURL($url.'/wp-content/plugins/wp-rocket/contributors.txt') .'</td></tr>';
+     
+     //desktop cache
+     $widget_body .= '<tr><td><trong>Desktop HTML Cache</strong></td><td>'. $file_exists->checkURL($url.'wp-content/cache/wp-rocket/'.$url_parts[1].'index-'.$url_parts[0].'.html') .'</td></tr>';
+ 
+     // mobile cache
+     $widget_body .= '<tr><td><trong>Mobile HTML cache</strong></td><td>'. $file_exists->checkURL($url.'wp-content/cache/wp-rocket/'.$url_parts[1].'index-mobile-'.$url_parts[0].'.html') .'</td></tr>';	
+ 
+     // webp cache
+     $widget_body .= '<tr><td><trong>WebP HTML cache</strong></td><td>'. $file_exists->checkURL($url.'wp-content/cache/wp-rocket/'.$url_parts[1].'index-'.$url_parts[0].'-webp.html') .'</td></tr>';	
+     
+     
+           
+     $widget_body .= '</table>';
+     
+ 
+ 
+   } else {
+     $widget_body = '<h5><span class="badge badge-danger">Oops! WP Rocket is not installed!</h5>';
+   }
+   
+     
+   echo $widget->display_widget('WP Rocket Enabled Features', $widget_body, 'rocket ', 'fa-rocket');
+ 
+ 
+ 
+   // wprocket - HTML scanner
+   $widget = new widget();
+   $scanner = new scanner(); 
+   $widget_body = $scanner->html_scan($site_html);
+   echo $widget->display_widget('Potential issues', $widget_body, 'rocket scanner ', 'fa-bug');
+
   // cached headers
   $widget = new widget();
   $cached = new headers(); 
@@ -58,59 +111,6 @@ if ($url) :
   echo $widget->display_widget('Hosting', $widget_body, 'information ', 'fa-server');
 
 
-
-   // wprocket - enabled options
-  $widget = new widget;
-  $rocket = new Rocket( $site_html, $url );
-  $widget_body = '';
-  if( $rocket->is_wpr_installed ){
-		$features_enabled = $rocket->enabled_features;
-      
-      asort($features_enabled);
-      $widget_body = '<h5><span class="badge badge-success">WP Rocket is enabled!</span></h5>';
-
-		foreach( $features_enabled as $feature ){
-			$widget_body .= '<i class="far fa-check-square"></i> ' . $feature . '<br>';
-		}
-
-		// FILE DETECTIONS
-		$widget_body .= '<br><h5><span class="badge badge-primary">FILES</h5>';
-		
-		$file_exists = new files(); 
-		$widget_body .= '<table class="table table-striped table-sm">';
-		
-		// contributors file
-		// $widget_body .= '<tr><td><trong>Contributors.txt</strong></td><td>'. $file_exists->checkURL($url.'/wp-content/plugins/wp-rocket/contributors.txt') .'</td></tr>';
-		
-		//desktop cache
-		$widget_body .= '<tr><td><trong>Desktop HTML Cache</strong></td><td>'. $file_exists->checkURL($url.'wp-content/cache/wp-rocket/'.$url_parts[1].'index-'.$url_parts[0].'.html') .'</td></tr>';
-
-		// mobile cache
-		$widget_body .= '<tr><td><trong>Mobile HTML cache</strong></td><td>'. $file_exists->checkURL($url.'wp-content/cache/wp-rocket/'.$url_parts[1].'index-mobile-'.$url_parts[0].'.html') .'</td></tr>';	
-
-		// webp cache
-		$widget_body .= '<tr><td><trong>WebP HTML cache</strong></td><td>'. $file_exists->checkURL($url.'wp-content/cache/wp-rocket/'.$url_parts[1].'index-'.$url_parts[0].'-webp.html') .'</td></tr>';	
-		
-		
-					
-		$widget_body .= '</table>';
-		
-
-
-  } else {
-	  $widget_body = '<h5><span class="badge badge-danger">Oops! WP Rocket is not installed!</h5>';
-  }
-  
-    
-  echo $widget->display_widget('WP Rocket Enabled Features', $widget_body, 'rocket ', 'fa-rocket');
-
-
-
-  // wprocket - HTML scanner
-  $widget = new widget();
-  $scanner = new scanner(); 
-  $widget_body = $scanner->html_scan($site_html);
-  echo $widget->display_widget('Potential issues', $widget_body, 'rocket scanner ', 'fa-bug');
 
 /*
    // info - CSS files

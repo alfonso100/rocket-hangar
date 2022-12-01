@@ -1,10 +1,10 @@
 
 $(document).ready(function () {
 
-	$('.grid').masonry({
-		itemSelector: '.grid-item',
-		percentPosition: true
-	});
+	// $('.grid').masonry({
+	// 	itemSelector: '.grid-item',
+	// 	percentPosition: true
+	// });
 
 
 	$('.rotate').click(function () {
