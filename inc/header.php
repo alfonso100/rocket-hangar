@@ -62,7 +62,7 @@
 		.report {
 			border: 2px dashed #999;
 			padding: 20px;
-			background: #999;
+			/* background: #999; */
 			border-radius: 10px;
 			min-height: 100px;
 			transition: height 2s;

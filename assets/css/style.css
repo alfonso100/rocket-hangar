@@ -143,3 +143,44 @@ code {
 .text-light .navbar-dark .navbar-nav .nav-link {
     color: #fff;
 }
+
+.bg-dark.text-light .widget {
+
+    background: #000 !important;
+}
+
+.bg-dark.text-light .badge {
+
+    color: #fff !important;
+}
+.bg-dark.text-light .report {
+
+    background: #000 !important;
+}
+.bg-light.text-dark .widget {
+
+    background: #fff !important;
+}
+
+.bg-light.text-dark .badge {
+
+    color: #000 !important;
+}
+
+.bg-light.text-dark .report {
+
+    background: #fff !important;
+}
+
+.form-switch .form-check-input {
+    width: 1.5em !important;
+    margin-top: 0.4em !important;
+    height: 0.8em !important;
+    margin-left: -1.5em !important;
+}
+
+.form-check-input:focus {
+    border-color: transparent;
+    outline: 0;
+    box-shadow: 0 0 0 0 rgb(13 110 253 / 25%);
+}
