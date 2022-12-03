@@ -38,7 +38,7 @@ include('inc/nav.php');
 			<!-- FIRST STEP  -->
 			<div class="box">
 				<div class="row px-4 py-0">
-					<div class="col-6">
+					<div class="col-12">
 
 						<h2>PSI Test Tool - V2</h2>
 	
@@ -51,8 +51,8 @@ include('inc/nav.php');
 						  <input  name="checked" type="checkbox" class="custom-control-input" id="customSwitch1" <?=$checked ?>>
 						  <label class="custom-control-label" for="customSwitch1" ><em>I have verified the website is optimized by WP Rocket</em></label>
 						  </div>
-						  <br><br><br><br>
-						  <input name="url" class="form-control w-75" type="url" placeholder="URL to test" aria-label="Url" value="<?php echo $url ?>">
+						  <br>
+						  <input name="url" class="form-control w-75" type="url" placeholder="URL to test" aria-label="Url" value="<?php echo $url ?>" style="display:inline-block;    width: 90% !important;">
 							<button id="submit-button" class="btn btn-dark" type="submit" disabled>RUN REPORT</button>
 			
 						</form>

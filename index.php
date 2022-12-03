@@ -49,6 +49,9 @@ include('inc/nav-index.php');
     margin-left: 1% !important;
     margin-right: 1% !important;
 }
+input.form-control.mr-sm-4.w-75.ml-auto {
+    width: 95% !important;;
+}
 	</style>
 
 

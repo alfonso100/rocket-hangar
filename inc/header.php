@@ -178,6 +178,9 @@
 		.grid-item {
     width: 100% !important;
 }
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 0.3rem !important;
+}
 	</style>
 
 

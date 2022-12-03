@@ -49,7 +49,7 @@
         <a class="nav-link" target="_blank" href="https://rocketcdn.me/admin/website/website/?q=<?php echo $url ?>"> <i class="fas fa-code"></i>Search in RocketCDN</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link"  href="psi-test.php?url=<?php echo $url ?>"> <i class="fas fa-clock"></i> PSI Test tool</a>
+        <a class="nav-link"  href="psi-test.php?checked=on&url=<?php echo $url ?>"> <i class="fas fa-clock"></i> PSI Test tool</a>
         </li>
         <li class="nav-item">
         <a class="nav-link"  href="license-validator.php?url=<?php echo $url ?>" data-toggle="tooltip" data-placement="bottom" title="This tool can be used to validate a license against WP Rocket API using a combination of URL email and API Key"> <i class="fas fa-key"></i> License Validation</a>
@@ -103,10 +103,16 @@
 
     </div>
 
-
+    <div class="box">
+				<div class="row px-4 py-0">
+					<div class="col-12">
   <form class="form-inline my-4 my-lg-0 w-100 ml-auto" method="get" action="index.php">
 			<input name="url" class="form-control mr-sm-4 w-75 ml-auto" type="search" placeholder="URL to test" aria-label="Search" value="<?php echo $url?>" style="display: inline-block;">
 			<button class="btn btn-dark my-4 my-sm-0" type="submit">Go</button>
       	</form>
+        </div>
+      </div>
+    </div>
+        
         <div class="container-fluid">
   <div class="grid">

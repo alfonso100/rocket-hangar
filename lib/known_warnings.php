@@ -17,7 +17,7 @@ $warnings = array(
 // PLUGIN CONFLICTS
 
     // DONOTCACHE WARNINGS
-    
+  
     array("bookly-responsive-appointment-booking-tool", "Bookly Appointment Booking Plugin - Prevents caching with a DONOTCACHEPAGE",  "warning", "https://www.notion.so/wpmedia/Known-Conflicts-8d0a97af9b9c49dd991b28b24550e3de#5504ba540cbf4a0a9caf614e71918d1d"),
     array("amp=", "AMP Plugin (Official) - When the Standard Template mode is selected, none of WP Rocket's optimizations are being applied.",  "warning", "https://www.notion.so/wpmedia/Known-Conflicts-8d0a97af9b9c49dd991b28b24550e3de#04202c70d2ec41ab8d48522a464ffbcd"),
     // array(" ", " ",  "warning", " "),
