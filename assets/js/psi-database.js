@@ -102,7 +102,7 @@ let psi_database = [
         name: 'Remove Unused CSS',
         content: `
         <li class="unused-css-rules can-advise">
-            <p><span style="font-weight: bold;"><b>Remove Unused CSS</b></span><br>Try to eliminate the CSS rules your pages are not using. Please read: <a href="https://docs.wp-rocket.me/article/1393-remove-unused-css">https://docs.wp-rocket.me/article/1393-remove-unused-css</a><br><br>[CHECK IF wpr-usedcss IS PRESENT, IF YES CHECK IF THERE ARE UNPROCESSED CSS FILES]
+            <p><span style="font-weight: bold;"><b>Remove Unused CSS</b></span><br>Try to eliminate the CSS rules your pages are not using. Please read: <a href="https://docs.wp-rocket.me/article/1393-remove-unused-css">https://docs.wp-rocket.me/article/1393-remove-unused-css</a><br><br>
             </p>
         </li>`,
         destination: 'can-advise',
