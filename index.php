@@ -20,8 +20,11 @@ if($_GET['url']) :
 endif;
 
 include('classes/loader.php'); 
-
 include('inc/header.php'); 
+include('inc/nav.php'); 
+include('inc/form-index.php'); 
+// include('indicators'); 
+
 
 
 
