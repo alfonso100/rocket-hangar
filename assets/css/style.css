@@ -7,12 +7,12 @@ body {
     background-color: #D6DCE1!important;
 }
 
-/* nav i {
+nav i {
 	background: #FFF;
 	padding: 0.8rem;
 	border-radius: 2rem;
 	border: 1px solid #F1F3F5;
-} */
+}
 
 .grid-item { width: 23%; margin-left: 1%; margin-right: 1%;}
 .grid-item--width33 { width: 31%; }
@@ -27,7 +27,7 @@ body {
 .widget {
 	font-size: 0.8rem;
 	border-radius: 0.4rem;
-	background: #999;
+	background: #FFF;
 	margin-top: 1rem;
 	margin-bottom: 1rem;
 	overflow-y: hidden;
@@ -118,69 +118,4 @@ code {
   font-size: .875rem;
   line-height: .5;
   border-radius: .2rem;
-}
-#lightSwitch {
-	transform: scale(1.8);
-  }
-  
-  .custom-theme.bg-light {
-	background-color: darkslategray !important;
-	border-radius: 3px;
-	color: gainsboro;
-	text-decoration: underline;
-  }
-  
-  .custom-theme.bg-dark {
-	background-color: blanchedalmond !important;
-	box-shadow: 10px 5px 5px rgba(246, 255, 219, 0.5);
-	color: dimgray;
-	text-decoration: overline;
-  }
-  .form-switch {
-    padding-left: 13.5em !important;
-}
-
-.text-light .navbar-dark .navbar-nav .nav-link {
-    color: #fff;
-}
-
-.bg-dark.text-light .widget {
-
-    background: #000 !important;
-}
-
-.bg-dark.text-light .badge {
-
-    color: #fff !important;
-}
-.bg-dark.text-light .report {
-
-    background: #000 !important;
-}
-.bg-light.text-dark .widget {
-
-    background: #fff !important;
-}
-
-.bg-light.text-dark .badge {
-
-    color: #000 !important;
-}
-
-.bg-light.text-dark .report {
-
-    background: #fff !important;
-}
-
-.form-switch .form-check-input {
-    width: 1.5em !important;
-    margin-top: 0.4em !important;
-    height: 0.8em !important;
-    margin-left: -1.5em !important;
-}
-
-.form-check-input:focus {
-    border-color: transparent;
-    outline: 0;
-    box-shadow: 0 0 0 0 rgb(13 110 253 / 25%);
 }

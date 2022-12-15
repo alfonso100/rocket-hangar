@@ -1,10 +1,10 @@
 
 $(document).ready(function () {
 
-	// $('.grid').masonry({
-	// 	itemSelector: '.grid-item',
-	// 	percentPosition: true
-	// });
+	$('.grid').masonry({
+		itemSelector: '.grid-item',
+		percentPosition: true
+	});
 
 
 	$('.rotate').click(function () {
@@ -20,10 +20,6 @@ $(document).ready(function () {
 
 	$('#fix-button').on('click', function () {
 		$('.follower').toggleClass('fixed');
-		//$(this).removeClass('btn-outline-dark').addClass('btn-primary');
-	});
-	$('#fix-button-indicators').on('click', function () {
-		$('.indicators').toggleClass('fixed');
 		//$(this).removeClass('btn-outline-dark').addClass('btn-primary');
 	});
 	

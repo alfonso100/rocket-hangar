@@ -1,14 +1,34 @@
 <?php
 // License validation tool
 include('classes/loader.php'); 
-include('inc/header.php');
-include('inc/nav.php');
 
 $url = $_GET['url'];
 $warmup_url = $_GET['url_warmup'];
 
 ?>
 
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/png" href="https://wphangar.com/lab/assets/images/favicon.png" />
+
+  
+    <title>Hangar for WP Rocket</title>
+  </head>
+  <body>
+    
+  <nav class="navbar navbar-expand-lg  navbar-light bg-light p-4">
+    <a class="navbar-brand" href="index.php?url=<?=$url?>"><i class="fas fa-rocket"></i> the hangar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+     </nav>
 
 
   <div class="container-fluid">

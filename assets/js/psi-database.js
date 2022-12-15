@@ -68,7 +68,7 @@ let psi_database = [
         name: 'Serve images in next-gen formats',
         content: `
         <li class="uses-webp-images can-advise">
-            <p><span style="font-weight: bold;"><b>Serve images in next-gen formats</b></span><br>It is recommended to use more compressed formats, like WebP, for your images listed below. Please read: <a href="https://docs.wp-rocket.me/article/1394-serve-images-in-next-gen-formats">https://docs.wp-rocket.me/article/1394-serve-images-in-next-gen-formats</a><br><br>          
+            <p><span style="font-weight: bold;"><b>Serve images in next-gen formats</b></span><br>It is recommended to use more compressed formats, like WebP, for your images. Please read: <a href="https://docs.wp-rocket.me/article/1394-serve-images-in-next-gen-formats">https://docs.wp-rocket.me/article/1394-serve-images-in-next-gen-formats</a><br><br>          
             </p>
         </li>`,
         destination: 'can-advise',
@@ -79,7 +79,7 @@ let psi_database = [
         name: 'Efficiently encode images',
         content: `
         <li class="uses-optimized-images can-advise">
-            <p><span style="font-weight: bold;"><b>Efficiently encode images</b></span><br>Images listed below need additional compression. Please read:<a href="https://docs.wp-rocket.me/article/1395-efficiently-encode-images">https://docs.wp-rocket.me/article/1395-efficiently-encode-images</a><br>[ADD IMAGES OR SCREENSHOT HERE]<br><br>            
+            <p><span style="font-weight: bold;"><b>Efficiently encode images</b></span><br>Some images need additional compression. Please read:<a href="https://docs.wp-rocket.me/article/1395-efficiently-encode-images">https://docs.wp-rocket.me/article/1395-efficiently-encode-images</a><br>[ADD IMAGES OR SCREENSHOT HERE]<br><br>            
             </p>
         </li>`,
         destination: 'can-advise',
@@ -90,7 +90,7 @@ let psi_database = [
         name: 'Properly size images',
         content: `
         <li class="uses-responsive-images can-advise">
-            <p><span style="font-weight: bold;"><b>Properly size images </b></span><br>Make sure your images listed below are using the right size. Please read: <a href="https://docs.wp-rocket.me/article/1396-properly-size-images">https://docs.wp-rocket.me/article/1396-properly-size-images</a><br>[ADD IMAGES OR SCREENSHOT HERE]<br><br>
+            <p><span style="font-weight: bold;"><b>Properly size images</b></span><br>Make sure your images are using the right size. Please read: <a href="https://docs.wp-rocket.me/article/1396-properly-size-images">https://docs.wp-rocket.me/article/1396-properly-size-images</a><br>[ADD IMAGES OR SCREENSHOT HERE]<br><br>
             </p>
         </li>`,
         destination: 'can-advise',
@@ -102,7 +102,7 @@ let psi_database = [
         name: 'Remove Unused CSS',
         content: `
         <li class="unused-css-rules can-advise">
-            <p><span style="font-weight: bold;"><b>Remove Unused CSS</b></span><br>Try to eliminate the CSS rules your pages are not using. Please read: <a href="https://docs.wp-rocket.me/article/1393-remove-unused-css">https://docs.wp-rocket.me/article/1393-remove-unused-css</a><br><br>
+            <p><span style="font-weight: bold;"><b>Remove Unused CSS</b></span><br>Try to eliminate the CSS rules your pages are not using. Please read: <a href="https://docs.wp-rocket.me/article/1393-remove-unused-css">https://docs.wp-rocket.me/article/1393-remove-unused-css</a><br><br>[CHECK IF wpr-usedcss IS PRESENT, IF YES CHECK IF THERE ARE UNPROCESSED CSS FILES]
             </p>
         </li>`,
         destination: 'can-advise',
@@ -340,7 +340,7 @@ let psi_database = [
         name: 'Image elements do not have explicit width and height',
         content: `
         <li class="unsized-images can-advise">
-            <p><span style="font-weight: bold;"><b>Image elements do not have explicit width and height</b></span><br>The Images and/or videos listed below that do not have width and height attributes can cause layout shifts as your page loads. You can enable <a href="https://docs.wp-rocket.me/article/1366-add-missing-image-dimensions">Add Missing Image Dimensions</a> option in WP Rocket to improve this. Please read: <a href="https://docs.wp-rocket.me/article/1471-image-elements-do-not-have-explicit-width-and-height">https://docs.wp-rocket.me/article/1471-image-elements-do-not-have-explicit-width-and-height</a><br><br>
+            <p><span style="font-weight: bold;"><b>Image elements do not have explicit width and height</b></span><br>Images and/or videos that do not have width and height attributes can cause layout shifts as your page loads. You can enable <a href="https://docs.wp-rocket.me/article/1366-add-missing-image-dimensions">Add Missing Image Dimensions</a> option in WP Rocket to improve this. Please read: <a href="https://docs.wp-rocket.me/article/1471-image-elements-do-not-have-explicit-width-and-height">https://docs.wp-rocket.me/article/1471-image-elements-do-not-have-explicit-width-and-height</a><br><br>
             </p>
         </li>`,
         destination: 'can-advise',
