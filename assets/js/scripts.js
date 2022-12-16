@@ -1,6 +1,11 @@
 
 $(document).ready(function () {
 
+
+	$('#sidebarCollapse').on('click', function () {
+		$('#sidebar').toggleClass('active');
+	});
+
 	$('.grid').masonry({
 		itemSelector: '.grid-item',
 		percentPosition: true
@@ -23,6 +28,10 @@ $(document).ready(function () {
 		//$(this).removeClass('btn-outline-dark').addClass('btn-primary');
 	});
 	
+	$('#fix-button-indicators').on('click', function () {
+		$('.indicators').toggleClass('fixed');
+		//$(this).removeClass('btn-outline-dark').addClass('btn-primary');
+	});
 	// init Isotope
 	var $grid = $('.grid').isotope({
 		// options

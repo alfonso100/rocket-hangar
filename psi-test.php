@@ -92,7 +92,7 @@ include('classes/loader.php');
 
 		.form-check {
 			padding: 2px;
-			background: #eaeaea;
+			/* background: #eaeaea; */
 			border-radius: 10px;
 			margin: 2px;
 			border: 2px solid #EAEAEA;
@@ -107,7 +107,7 @@ include('classes/loader.php');
 
 		.form-check.active {
 			padding: 3px;
-			background: #FFF;
+			/* background: #FFF; */
 			/* border-radius: 10px; */
 			margin: 3px;
 			/* border: 2px solid #333; */
@@ -227,6 +227,10 @@ include('classes/loader.php');
 		.uses-passive-event-listeners {
 			display: none !important;
 		}
+		/* indicators grid items */
+		.grid-item {
+    width: 100%;
+}
 	</style>
 
 
@@ -235,14 +239,9 @@ include('classes/loader.php');
 
 <body>
 
-	<nav class="navbar navbar-expand-lg  navbar-light bg-light p-4">
-		<a class="navbar-brand" href="index.php?url=<?= $url ?>"><i class="fas fa-rocket"></i> the hangar</a>
-	</nav>
 
-
-	<div class="container-fluid">
-		<div class="grids">
-
+<?php include('inc/nav.php'); ?>
+		
 
 			<!-- FIRST STEP  -->
 			<div class="box">
@@ -274,6 +273,7 @@ include('classes/loader.php');
 			<?php if ($url) :  ?>
 				<div class="box spinner-container">
 					<img class="spinner" src="assets/images/rocket.gif">
+					<!-- <i class="spinner fas fa-rocket"></i> -->
 					<h3 class="spinner-text">Waiting for Google PageSpeed Insights results...</h3>
 				</div>
 				<div class="box hidden" id="results-box">
@@ -297,9 +297,14 @@ include('classes/loader.php');
 									</div>
 								</div>
 								<div id="response-content-to-copy">
+
+								<p>​I have tested <?php echo $url ?> with our diagnosis tool.</p>
+									<p>This tool allows me to detect the most relevant WP Rocket features with a direct impact on your Pagespeed score.</p>
+
 									<p>Please see this side-by-side comparison of your performance reports, <a href="https://developers.google.com/speed/pagespeed/insights/?hl=en&url=<?php echo $url ?>" target="_blank">cached</a> vs <a href="https://developers.google.com/speed/pagespeed/insights//?hl=en&url=<?php echo $url ?>?nowprocket" target="_blank">non-cached</a>: [INSERT SCREENSHOT LINK HERE]<br><br>
 									[KEEP THIS IF TRUE]<br>Your site is definitely faster with WP Rocket!<br>[/KEEP THIS IF TRUE]
 </p>
+									
 
 									<?php
 
@@ -335,7 +340,7 @@ include('classes/loader.php');
 							</div>
 						</div>
 
-						<div class="col-6">
+						<div class="col-3">
 							<div class="follower">
 								<h4>3 - Add some opportunities and recommendations <button type="button" class="btn btn-outline-secondary btn-sm" id="fix-button">float it <i class="fas fa-window-restore "></i></button></h4>
 								<small>From this list, add 3 or 4 <span style="font-weight: bold;"><b>Opportunities</b></span> from the cached version Pagespeed report.<br><strong>Important:</strong> If there are still any WPR options to activate, some opportunities will be automatically disabled to avoid sending duplicated recommendations.</small><br><br>
@@ -351,6 +356,11 @@ include('classes/loader.php');
 							</div>
 
 						</div>
+						<div class="col-3">
+							<div class="indicators">
+						<h4>4 - Indicators <button type="button" class="btn btn-outline-secondary btn-sm" id="fix-button-indicators">float it <i class="fas fa-window-restore "></i></button></h4>
+						<?php include('indicators.php');?>
+						</div>		
 					</div>
 				</div>
 
@@ -462,6 +472,7 @@ include('classes/loader.php');
 						</div>
 
 					</div>
+				</div>
 				</div>
 			<?php endif; ?>
 
